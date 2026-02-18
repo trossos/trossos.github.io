@@ -1,47 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-</div><!-- /.blurb -->
-<html>
-		<head>
-			<title>tsest</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/style.css">
-		</head>
-		<body>
-<!-- 			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/about">About</a></li>
-	        		<li><a href="/cv">CV</a></li>
-	        		<li><a href="/blog">Blog</a></li>
-	    		</ul>
-			</nav> -->
-			<div class="container">
-			
-			
-			<div class="blurb">
-				<h1>Add Item</h1>
-				<form action="submit.html">
-					<label for="fname">Product</label>
-					<input type="text" id="txt">
+    :root {
+      --bg: #f5f2eb;
+      --ink: #1a1a18;
+      --muted: #888880;
+      --accent: #c84b2f;
+      --border: #dedad2;
+    }
 
+    html { scroll-behavior: smooth; }
 
-					<label for="lname">Date Ingested</label>
-					<input type="date" id="txt" name="lname"><br>
-					<label for="fname">Ingest Location</label>
-					<input type="text" id="txt"><br>
-					<label for="lname">Destination</label>
-					<input type="text" id="txt"><br><br>
-					<input type="submit" value="Submit" />
-				  </form> 
-			
-				 
-			</div><!-- /.container -->
-<!-- 			<footer>
-	    		<ul>
-	        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-	        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-				</ul> -->
-<!-- 			</footer> -->
-			<script src = "/js/script.js"></script>
-		</body>
-	</html>
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      padding: 80px 0 60px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .name {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .name em { font-style: italic; color: var(--accent); }
+
+    .bio {
+      font-size: 14px;
+      max-width: 520px;
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+    }
+
+    .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    section {
+      padding: 60px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(3) { animation-delay: 0.2s; }
+    section:nth-child(4) { animation-delay: 0.3s; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    /* ── Project card ── */
+    .project {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 32px;
+      align-items: start;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project:first-of-type { border-top: 1px solid var(--border); }
+
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .project-year { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+    .project-desc { margin-bottom: 16px; line-height: 1.8; }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+    .tag {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+
+    .project-links { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .project-links a {
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .project-links a:hover { border-bottom-color: var(--accent); }
+
+    .project-links a.read-more {
+      color: var(--ink);
+      border-bottom-color: var(--border);
+    }
+
+    .project-links a.read-more:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* Image column */
+    .project-image-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: #edeae2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .project-image-wrap:hover img { transform: scale(1.03); }
+
+    .img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .img-placeholder svg { opacity: 0.35; }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      border: 1px solid var(--border);
+    }
+
+    .skill-group {
+      padding: 20px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-group:nth-child(even) { border-right: none; }
+
+    .skill-group-name {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .skill-group ul { list-style: none; }
+    .skill-group li { font-size: 13px; padding: 2px 0; }
+
+    footer {
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+
+    footer span, footer a {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 580px) {
+      .project { grid-template-columns: 1fr; }
+      .project-image-wrap { order: -1; aspect-ratio: 16/9; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .skill-group:nth-child(odd)  { border-right: 1px solid var(--border); }
+      .skill-group:nth-child(even) { border-right: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <p class="tagline">Software Engineer — Class of 2025</p>
+    <h1 class="name">Your <em>Name</em></h1>
+    <p class="bio">
+      I build things for the web. Currently finishing my CS degree at [University]
+      and looking for full-time roles in [backend / frontend / full-stack].
+      I care about clean code, good abstractions, and software that actually works.
+    </p>
+    <nav class="links">
+      <a href="mailto:you@email.com">Email</a>
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+      <a href="/resume.pdf" target="_blank">Résumé</a>
+    </nav>
+  </header>
+
+  <hr />
+
+  <!-- PROJECTS -->
+  <section>
+    <p class="section-label">Projects</p>
+
+    <!-- Project 1 -->
+    <div class="project">
+      <div class="project-body">
+        <div class="project-header">
+          <h2 class="project-title">Project One</h2>
+          <span class="project-year">2024</span>
+        </div>
+        <p class="project-desc">
+          A short description of what this project does and why you built it.
+          Keep it conversational — like you're explaining it at a coffee chat.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+        <div class="project-links">
+          <a href="project-one.html" class="read-more">Read more →</a>
+          <a href="https://github.com/yourusername/project-one" target="_blank">GitHub →</a>
+          <a href="https://yourproject.com" target="_blank">Live →</a>
+        </div>
+      </div>
+      <!-- Set src to your screenshot, e.g. "images/project-one.png" -->
+      <div class="project-image-wrap" id="img1">
+        <img src="images/project-one.png" alt="Project One screenshot"
+          onerror="document.getElementById('img1').innerHTML='<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'" />
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+      <div class="project-body">
+        <div class="project-header">
+          <h2 class="project-title">Project Two</h2>
+          <span class="project-year">2024</span>
+        </div>
+        <p class="project-desc">
+          What was the interesting technical challenge? What did you learn?
+          An honest reflection here is more compelling than bullet points.
+        </p>
+        <div class="project-tags">
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span>
+        </div>
+        <div class="project-links">
+          <a href="project-two.html" class="read-more">Read more →</a>
+          <a href="https://github.com/yourusername/project-two" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-image-wrap" id="img2">
+        <img src="images/project-two.png" alt="Project Two screenshot"
+          onerror="document.getElementById('img2').innerHTML='<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'" />
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project">
+      <div class="project-body">
+        <div class="project-header">
+          <h2 class="project-title">Project Three</h2>
+          <span class="project-year">2023</span>
+        </div>
+        <p class="project-desc">
+          Class project or weekend hack — doesn't matter. What matters is that
+          you can talk clearly about what you built and what you'd change.
+        </p>
+        <div class="project-tags">
+          <span class="tag">C++</span>
+          <span class="tag">OpenGL</span>
+        </div>
+        <div class="project-links">
+          <a href="project-three.html" class="read-more">Read more →</a>
+          <a href="https://github.com/yourusername/project-three" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-image-wrap" id="img3">
+        <img src="images/project-three.png" alt="Project Three screenshot"
+          onerror="document.getElementById('img3').innerHTML='<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'" />
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- SKILLS -->
+  <section>
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <p class="skill-group-name">Languages</p>
+        <ul>
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>C++</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-name">Frameworks</p>
+        <ul>
+          <li>React</li>
+          <li>FastAPI</li>
+          <li>Node.js</li>
+          <li>Express</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-name">Tools</p>
+        <ul>
+          <li>Git</li>
+          <li>Docker</li>
+          <li>Linux</li>
+          <li>AWS</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-name">Concepts</p>
+        <ul>
+          <li>REST APIs</li>
+          <li>Databases</li>
+          <li>Algorithms</li>
+          <li>CI/CD</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Built with HTML & CSS — hosted on GitHub Pages</span>
+    <a href="https://github.com/yourusername/yourusername.github.io" target="_blank">View source</a>
+  </footer>
+
+</div>
+</body>
+</html>
