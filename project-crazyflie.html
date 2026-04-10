@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crazyflie Nano UAV SLAM — Trent Rossos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #f5f2eb;
+        --ink: #1a1a18;
+        --muted: #888880;
+        --accent: #c84b2f;
+        --border: #dedad2;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Serif", serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      .back {
+        padding: 32px 0 0;
+        opacity: 0;
+        animation: fadeUp 0.6s ease forwards;
+      }
+
+      .back a {
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 1px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .back a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      .hero {
+        padding: 48px 0 40px;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.05s forwards;
+      }
+
+      .project-meta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .project-year {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        padding: 2px 8px;
+        border-radius: 2px;
+      }
+
+      .project-title {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin-bottom: 20px;
+      }
+
+      .project-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .project-summary {
+        font-size: 15px;
+        line-height: 1.9;
+        margin-bottom: 28px;
+      }
+
+      .external-links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .external-links a {
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 1px;
+        transition: border-color 0.2s;
+      }
+
+      .external-links a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+
+      .images {
+        padding: 72px 0;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.1s forwards;
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .image-grid.full-width {
+        grid-template-columns: 1fr;
+      }
+
+      .img-wrap {
+        border: 1px solid var(--border);
+        overflow: hidden;
+        background: #edeae2;
+        aspect-ratio: 16/10;
+      }
+
+      .img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease;
+      }
+
+      .img-wrap:hover img {
+        transform: scale(1.03);
+      }
+
+      .img-caption {
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 10px;
+        letter-spacing: 0.03em;
+      }
+
+      .content-section {
+        padding: 48px 0;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+      }
+
+      .content-section:nth-of-type(1) {
+        animation-delay: 0.15s;
+      }
+      .content-section:nth-of-type(2) {
+        animation-delay: 0.22s;
+      }
+
+      .section-label {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 24px;
+      }
+
+      .content-section h3 {
+        font-family: "Instrument Serif", serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-bottom: 24px;
+        margin-top: 8px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .content-section p {
+        line-height: 1.9;
+        margin-bottom: 16px;
+      }
+
+      .content-section p:last-child {
+        margin-bottom: 0;
+      }
+
+      code {
+        font-family: "Noto Serif", serif;
+        font-size: 12px;
+        background: #ebe8df;
+        padding: 1px 5px;
+        border-radius: 2px;
+        color: var(--accent);
+      }
+
+      pre {
+        background: #1a1a18;
+        color: #e8e4da;
+        padding: 20px;
+        overflow-x: auto;
+        margin: 20px 0;
+        font-size: 12px;
+        line-height: 1.7;
+        border-radius: 2px;
+      }
+
+      pre code {
+        background: none;
+        color: inherit;
+        padding: 0;
+        font-size: inherit;
+      }
+
+      .callout {
+        border-left: 2px solid var(--accent);
+        padding: 14px 20px;
+        margin: 20px 0;
+        background: #f0ece3;
+      }
+
+      .callout p {
+        font-size: 13px;
+        color: var(--ink);
+        margin: 0;
+      }
+
+      footer {
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      footer span,
+      footer a {
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      footer a:hover {
+        color: var(--accent);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 500px) {
+        .image-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="back">
+        <a href="index.html">← Back to projects</a>
+      </nav>
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="project-meta">
+          <span class="project-year">2026</span>
+          <div class="project-tags">
+            <span class="tag">C</span>
+            <span class="tag">GAP-8 MCU</span>
+            <span class="tag">SLAM</span>
+            <span class="tag">STM32</span>
+            <span class="tag">ToF Sensing</span>
+            <span class="tag">Embedded Systems</span>
+          </div>
+        </div>
+
+        <h1 class="project-title">Crazyflie Nano UAV <em>Onboard Mapping and Exploration</em></h1>
+
+        <p class="project-summary">
+          A fully onboard mapping and exploration pipeline for the Crazyflie 2.1 nano quadrotor, implementing autonomous Mapping and frontier-based exploration using only the GAP-8's 512 KB of RAM. Builds 2D occupancy grids in real-time without offboard compute, ROS infrastructure, or external ground station dependency.
+        </p>
+
+        <div class="external-links">
+          <a href="https://github.com/trentrossos" target="_blank">GitHub →</a>
+          <a href="rossostr_thesis_final_report.pdf" target="_blank">Thesis Report →</a>
+          <a href="Thesis Presentation.pptx" target="_blank">Presentation →</a>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- IMAGES -->
+      <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap">
+            <img src="images/crazyflie/crazyflie.jpg" alt="Crazyflie hardware setup" />
+          </div>
+          <div class="img-wrap">
+            <img src="images/crazyflie/Rviz.png" alt="Occupancy map output" />
+          </div>
+        </div>
+        <p class="img-caption">
+          Left: hardware setup · Right: real-time occupancy map output
+        </p>
+      </div>
+
+      <!-- ARCHITECTURE -->
+      <div class="content-section">
+        <p class="section-label">Technical Architecture</p>
+
+        <h3>Hardware stack</h3>
+        <p>
+          The platform combines the Crazyflie 2.1 (27g nano-quadrotor with STM32F405 controller) with three expansion decks: Flow Deck v2 for optical flow and altitude, Multi-ranger Deck with five VL53L1x ToF sensors for sparse range measurements in cardinal directions, and AI Deck 1.1 featuring a GAP-8 parallel processor (8+1 RISC-V cores, 512 KB L2 SRAM) plus ESP32 for WiFi telemetry. Both the onboard STM32 and GAP-8 run custom firmware, with the STM32 handling flight control and sensor interfacing, while the GAP-8 executes the SLAM pipeline and exploration logic. Both firmware are built on a RTOS framework for task scheduling and inter-MCU communication, with the STM32 acting as the master and GAP-8 as a coprocessor for mapping and decision-making.
+        </p>
+
+        <h3>Mapping pipeline</h3>
+        <p>
+          The system implements occupancy grid SLAM with 5 cm cell resolution (200×200 grid = 10m×10m map). ToF readings are transformed from drone body frame to world frame using SE(2) rigid transforms, then ray-cast into the grid using Bresenham line tracing. Each cell uses log-odds representation (int8) to accumulate confidence from sensor hits and free-space inference, eliminating noise spikes that plagued binary approaches.
+        </p>
+
+        <h3>Communication architecture</h3>
+        <p>
+          Data flows across three interfaces: SPI between STM32 and GAP-8 for high-bandwidth sensor packets, UART/WiFi via the Crazyflie Packet eXchange (CPX) protocol for inter-MCU routing. A manual multiplexing layer was implemented to work around the STM32's static routing table, embedding type tags in payloads to distinguish sensor scans from navigation waypoints without modifying core flight firmware.
+        </p>
+
+        <h3>Autonomous exploration</h3>
+        <p>
+          Frontier-based exploration identifies unknown cells adjacent to free space, then filters candidates by minimum distance (0.8m), obstacle clearance (6 cells safe radius), and line-of-sight path validation. The drone autonomously flies to selected frontiers, performs fixed-duration spins to densify maps, and repeats until no valid frontiers remain.
+        </p>
+
+        <div class="callout">
+          <p>
+            Key constraint: 512 KB of GAP-8 L2 SRAM with no MMU or dynamic allocator. Every data structure required manual memory layout and sizing—from occupancy grid (40 kB) to IPC buffers to ray-casting scratch space. This constraint shaped every algorithmic decision.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGES -->
+      <div class="content-section">
+        <p class="section-label">Challenges & What I Learned</p>
+
+        <h3>Sensor sparsity versus mapping fidelity</h3>
+        <p>
+          The Multi-ranger deck's five single-zone ToF sensors produce only 4–5 points per scan (excluding the upward-facing sensor), compared to 64 points per sensor from more capable platforms. Dense ICP scan matching, which assumes significant geometric overlap, becomes unreliable. This necessitated relaxing convergence criteria and adding spatial validation checks to frontier selection—corners where scans don't sufficiently overlap can create false-positive frontier candidates.
+        </p>
+
+        <h3>Memory constraints shaped everything</h3>
+        <p>
+          The 512 KB L2 RAM budget meant every kilobyte mattered. Early designs storing log-odds as float32 left insufficient headroom for IPC buffers, forcing a switch to int8—compressing the confidence scale to ±100 but saving 36 KB. Map row "dirty" flags reduced WiFi bandwidth by 80%, eliminating redundant transmissions. The GAP-8 has no virtual memory or dynamic allocation; all structures required compile-time sizing and manual memory layout.
+        </p>
+
+        <h3>Communication protocol fragility</h3>
+        <p>
+          The stock ESP32 WiFi bridge using TCP-like handshaking frequently crashed under the sustained SPI data rate from the GAP-8. High-frequency packet loss stalled the flight control loop. This was resolved by switching to a community-developed optimized firmware using lightweight UDP, Zero-Copy buffers, and async I/O—eliminating blocking entirely and ensuring reliability under continuous streaming.
+        </p>
+
+        <h3>Frontier algorithm local minima</h3>
+        <p>
+          The greedy frontier selection can trap the drone in local minima where it's surrounded by explored areas but no valid frontier candidates remain within collision-safe bounds. Future improvements could include potential field-based navigation, RRT-based path planning for distant unexplored regions, or cost functions accounting for battery depletion.
+        </p>
+      </div>
+
+      <footer>
+        <span>Trent Rossos — Robotics Engineering, University of Toronto</span>
+        <a href="index.html">← All projects</a>
+      </footer>
+    </div>
+  </body>
+</html>

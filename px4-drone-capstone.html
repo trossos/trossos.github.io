@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PX4 Drone Capstone — Trent Rossos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --bg: #f5f2eb;
+        --ink: #1a1a18;
+        --muted: #7d7a72;
+        --accent: #c84b2f;
+        --border: #dedad2;
+        --surface: #f8f5ef;
+        --surface-2: #ede8dd;
+      }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "DM Mono", monospace;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      a { color: inherit; }
+      .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
+      .back { padding: 32px 0 0; animation: fadeUp 0.6s ease both; }
+      .back a, .external-links a, footer a {
+        font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+        border-bottom: 1px solid transparent; padding-bottom: 1px; transition: color .2s, border-color .2s;
+      }
+      .back a, footer a { color: var(--muted); }
+      .back a:hover, .external-links a:hover, footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+      .hero { padding: 48px 0 40px; animation: fadeUp 0.8s ease 0.05s both; }
+      .project-meta { display:flex; align-items:center; gap:16px; margin-bottom:20px; flex-wrap:wrap; }
+      .project-year { font-size:12px; color:var(--muted); }
+      .project-tags { display:flex; flex-wrap:wrap; gap:8px; }
+      .tag { font-size:11px; letter-spacing:.05em; color:var(--muted); border:1px solid var(--border); padding:2px 8px; border-radius:2px; background:rgba(255,255,255,.2); }
+      .project-title { font-family:"Instrument Serif", serif; font-size:clamp(2rem, 5vw, 3.1rem); font-weight:400; line-height:1.08; letter-spacing:-0.01em; margin-bottom:20px; }
+      .project-title em { font-style:italic; color:var(--accent); }
+      .project-summary { font-size:15px; line-height:1.9; max-width:640px; margin-bottom:28px; }
+      .external-links { display:flex; gap:16px; flex-wrap:wrap; }
+      .external-links a { color:var(--accent); }
+      hr { border:none; border-top:1px solid var(--border); margin:0; }
+      .images { padding:72px 0; animation: fadeUp 0.8s ease 0.1s both; }
+      .image-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+      .image-grid.full-width { grid-template-columns:1fr; }
+      .img-wrap { border:1px solid var(--border); overflow:hidden; background:var(--surface-2); aspect-ratio:16/10; }
+      .img-wrap img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease; }
+      .img-wrap:hover img { transform:scale(1.03); }
+      .img-caption { font-size:11px; color:var(--muted); text-align:center; margin-top:10px; letter-spacing:.03em; }
+      .content-section { padding:48px 0; border-top:1px solid var(--border); animation: fadeUp 0.8s ease both; }
+      .content-section:nth-of-type(1) { animation-delay:.15s; }
+      .content-section:nth-of-type(2) { animation-delay:.22s; }
+      .content-section:nth-of-type(3) { animation-delay:.29s; }
+      .content-section:nth-of-type(4) { animation-delay:.36s; }
+      .section-label { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+      .content-section h3 { font-family:"Instrument Serif", serif; font-size:1.8rem; font-weight:400; margin-bottom:24px; margin-top:8px; line-height:1.2; letter-spacing:-0.01em; }
+      .content-section p { line-height:1.9; margin-bottom:16px; max-width:660px; }
+      .content-section p:last-child { margin-bottom:0; }
+      code { font-family:"DM Mono", monospace; font-size:12px; background:#ebe8df; padding:1px 5px; border-radius:2px; color:var(--accent); }
+      .callout { border-left:2px solid var(--accent); padding:14px 20px; margin:20px 0; background:#f0ece3; }
+      .callout p { font-size:13px; color:var(--ink); margin:0; }
+      ul.timeline-list, ul.bullets { margin-left: 18px; }
+      ul.timeline-list li, ul.bullets li { margin-bottom: 8px; }
+      .timeline-grid { display:grid; gap:14px; }
+      .timeline-item { padding:14px 16px; background:var(--surface); border:1px solid var(--border); }
+      .timeline-item strong { display:block; margin-bottom:4px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+      footer { padding:40px 0 60px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+      footer span, footer a { font-size:12px; color:var(--muted); text-decoration:none; }
+      @keyframes fadeUp { from { opacity:0; transform:translateY(14px);} to { opacity:1; transform:translateY(0);} }
+      @media (max-width: 500px) { .image-grid { grid-template-columns:1fr; } .container { padding: 0 18px; } }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="back"><a href="index.html">← Back to projects</a></nav>
+      <div class="hero">
+        <div class="project-meta">
+          <span class="project-year">2026</span>
+          <div class="project-tags">
+            <span class="tag">PX4</span>
+            <span class="tag">Jetson Nano</span>
+            <span class="tag">ROS2</span>
+            <span class="tag">MAVROS</span>
+            <span class="tag">YOLOv8-Pose</span>
+            <span class="tag">AprilTag</span>
+            <span class="tag">Vicon</span>
+          </div>
+        </div>
+        <h1 class="project-title">Capstone Drone <em>Tracking, Fall Detection, and Signal Transmission</em></h1>
+        <p class="project-summary">An autonomous drone system built on PX4, Jetson Nano, ROS2, and Mavros. The project delivered three core objectives, tracking, fall detection, and signal transmission. Validation was achieved through repeated rebuilds, offline simulation, careful tuning, and conservative flight limits.</p>
+        <div class="external-links">
+          <a href="https://github.com/clairezhang2003/RoboCapstone/issues/3" target="_blank" rel="noopener noreferrer">Initialization notes →</a>
+          <a href="https://github.com/trentrossos" target="_blank" rel="noopener noreferrer">GitHub →</a>
+        </div>
+      </div>
+      <hr />
+      <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap"><img src="images/crazyflie/crazyflie.jpg" alt="Drone project hardware setup" /></div>
+          <div class="img-wrap"><img src="images/crazyflie/Rviz.png" alt="ROS visualization of tracking and mapping output" /></div>
+        </div>
+        <p class="img-caption">Representative hardware and visualization views from the development process.</p>
+      </div>
+      <div class="content-section">
+        <p class="section-label">Project Overview</p>
+        <h3>Three objectives, one flight stack</h3>
+        <p>The original capstone goals were tracking, fall detection, and signal transmission. We were able to achieve all three, while obstacle avoidance remained an optional extension rather than a primary deliverable. The drone ran on a PX4 flight controller with a Jetson Nano companion computer, using ROS2 for high-level control and MAVROS as the bridge between MAVLink messages and ROS topics.</p>
+        <p>The system was designed to stay practical under time and hardware constraints. Instead of depending on depth from disparity maps, tracking used a SONY IMX camera and an AprilTag-equipped chair to keep the target inside the camera field of view. Localization came from Vicon, giving the most reliable state estimate for testing and tuning.</p>
+      </div>
+      <div class="content-section">
+        <p class="section-label">Tracking Pipeline</p>
+        <h3>State machine control and distance estimation</h3>
+        <p>The main ROS2 node subscribed to drone state and local position through MAVROS, then published position and velocity commands to guide flight. Behavior was organized as a finite-state machine with transitions controlled by ROS2 service calls: <code>GROUND → CONNECT → TAKEOFF → HOVER → FOLLOW → LAND → GROUND</code>, with <code>ABORT</code> available whenever needed. In <code>FOLLOW</code>, perception estimated the chair’s image size and adjusted speed to preserve a stable following distance.</p>
+        <p>Distance was approximated with the pinhole-camera relation <code>distance ≈ (object size × focal length) / bbox height</code>. That choice was intentional: it was faster to implement and more robust than relying on disparity depth after the earlier crashes. During testing, we first ran the entire pipeline offline in <code>TEST_MODE</code> with annotated camera output, then tuned one direction at a time at low speed before allowing the full movement set.</p>
+        <div class="callout"><p>Safety checks were always active: hard cutoffs on maximum height and velocity, plus smoothing on frame-to-frame bounding box jitter, helped prevent unstable commands from reaching the drone.</p></div>
+      </div>
+      <div class="content-section">
+        <p class="section-label">Fall Detection</p>
+        <h3>YOLOv8-pose for reliable event detection</h3>
+        <p>Fall detection was implemented with YOLOv8-pose, which adds keypoint estimation on top of bounding boxes so the system can reason about body posture rather than just object presence. We originally planned to use a chair-based demonstration here too, but reliable knock-over tests inside the netting were too inconsistent, so we split the demo: tracking used the chair, while fall detection was validated with a human subject while the drone was stationary.</p>
+        <p>The detector used several conditions to reduce false positives. A fall was suspected if the person’s bounding box became wider than tall, or if the body orientation became significantly horizontal while the head dropped quickly relative to body size across frames. To avoid triggering on bending over or brief motion spikes, the system required multiple consecutive frames before announcing a fall.</p>
+        <p>In practice, the logic looked for a sustained pattern rather than a one-frame anomaly. If a fall was suspected, a counter incremented and the alert only fired after the condition persisted for four consecutive frames. The detection output was simple and visible: a red bounding box with <code>FALL DETECTED</code> text on the feed, plus terminal logs for confirmation.</p>
+      </div>
+      <div class="content-section">
+        <p class="section-label">System Reliability</p>
+        <h3>Rebuilds, retuning, and disciplined testing</h3>
+        <p>The timeline mattered as much as the final demo. FE1 exposed issues with the Jetson and SD card, then FE2 and FE3 progressed before the first crash forced a rebuild with new propellers and a new frame. A second crash led to a full rebuild with a new drone, new Jetson, new SD card, more QGroundControl retuning, and a change in internet switching before the final pass through FE1, FE2, FE3, camera testing, fall detection, and AprilTag tracking.</p>
+        <div class="timeline-grid">
+          <div class="timeline-item"><strong>Development timeline</strong> FE1 issues → FE2 → FE3 → crash 1 → rebuild → FE2 → crash 2 → full rebuild → retuning → camera tests → fall detection → AprilTag tracking.</div>
+          <div class="timeline-item"><strong>Design practices</strong> Offline validation first, then gradual tuning, conservative limits, and repeated flight exercises after each rebuild to make sure nothing regressed.</div>
+          <div class="timeline-item"><strong>Optimization</strong> Converted the model from <code>.pt</code> to <code>.engine</code> for Jetson performance and enabled maximum clocks with <code>sudo nvpmodel -m 0</code> and <code>sudo jetson_clocks</code>.</div>
+        </div>
+        <p>One of the clearest lessons was that autonomous flight is mostly a reliability problem. A system can look correct in code and still fail under vibration, restart conditions, sensor noise, or bad assumptions about compute headroom. The capstone ended up being as much about disciplined debugging and safety-first iteration as it was about autonomy.</p>
+      </div>
+      <footer>
+        <span>Trent Rossos — Robotics Engineering, University of Toronto</span>
+        <a href="index.html">← All projects</a>
+      </footer>
+    </div>
+  </body>
+</html>

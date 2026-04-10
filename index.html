@@ -1,434 +1,678 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trent Rossos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    :root {
-      --bg: #f5f2eb;
-      --ink: #1a1a18;
-      --muted: #888880;
-      --accent: #c84b2f;
-      --border: #dedad2;
-    }
+      :root {
+        --bg: #f5f2eb;
+        --ink: #1a1a18;
+        --muted: #888880;
+        --accent: #c84b2f;
+        --border: #dedad2;
+      }
 
-    html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'DM Mono', monospace;
-      font-weight: 300;
-      font-size: 14px;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Serif", serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.7;
+        min-height: 100vh;
+      }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
 
-    header {
-      padding: 80px 0 60px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards;
-    }
+      header {
+        padding: 80px 0 60px;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+      }
 
-    .tagline {
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
+      .tagline {
+        color: var(--muted);
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
 
-    .name {
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(2.4rem, 6vw, 3.6rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      margin-bottom: 16px;
-    }
+      .name {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(2.4rem, 6vw, 3.6rem);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin-bottom: 16px;
+      }
 
-    .name em { font-style: italic; color: var(--accent); }
+      .name em {
+        font-style: italic;
+        color: var(--accent);
+      }
 
-    .bio {
-      font-size: 14px;
-      max-width: 520px;
-      margin-bottom: 32px;
-      line-height: 1.8;
-    }
+      .bio {
+        font-size: 14px;
+        max-width: 560px;
+        margin-bottom: 32px;
+        line-height: 1.9;
+      }
 
-    .links { display: flex; gap: 20px; flex-wrap: wrap; }
+      .links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
 
-    .links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 1px;
-    }
+      .links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 1px;
+      }
 
-    .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+      .links a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
 
-    hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
 
-    section {
-      padding: 60px 0;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards;
-    }
+      section {
+        padding: 60px 0;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+      }
 
-    section:nth-child(2) { animation-delay: 0.1s; }
-    section:nth-child(3) { animation-delay: 0.2s; }
-    section:nth-child(4) { animation-delay: 0.3s; }
+      section:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      section:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      section:nth-child(4) {
+        animation-delay: 0.3s;
+      }
 
-    .section-label {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
+      .section-label {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 36px;
+      }
 
-    /* ── Project card ── */
-    .project {
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 32px;
-      align-items: start;
-      padding: 32px 0;
-      border-bottom: 1px solid var(--border);
-    }
+      /* ── Project card ── */
+      .project {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 32px;
+        align-items: start;
+        padding: 32px 0;
+        border-bottom: 1px solid var(--border);
+      }
 
-    .project:first-of-type { border-top: 1px solid var(--border); }
+      .project:first-of-type {
+        border-top: 1px solid var(--border);
+      }
 
-    .project-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
+      .project-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+      }
 
-    .project-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-    }
+      .project-title {
+        font-family: "Instrument Serif", serif;
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
 
-    .project-year { font-size: 12px; color: var(--muted); white-space: nowrap; }
+      .project-year {
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
 
-    .project-desc { margin-bottom: 16px; line-height: 1.8; }
+      .project-desc {
+        margin-bottom: 16px;
+        line-height: 1.8;
+      }
 
-    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
 
-    .tag {
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 2px 8px;
-      border-radius: 2px;
-    }
+      .tag {
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        padding: 2px 8px;
+        border-radius: 2px;
+      }
 
-    .project-links { display: flex; gap: 16px; flex-wrap: wrap; }
+      .project-links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
 
-    .project-links a {
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 1px;
-      transition: border-color 0.2s, color 0.2s;
-    }
+      .project-links a {
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 1px;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
 
-    .project-links a:hover { border-bottom-color: var(--accent); }
+      .project-links a:hover {
+        border-bottom-color: var(--accent);
+      }
 
-    .project-links a.read-more {
-      color: var(--ink);
-      border-bottom-color: var(--border);
-    }
+      .project-links a.read-more {
+        color: var(--ink);
+        border-bottom-color: var(--border);
+      }
 
-    .project-links a.read-more:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
+      .project-links a.read-more:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
 
-    /* Image column */
-    .project-image-wrap {
-      width: 100%;
-      aspect-ratio: 4/3;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      background: #edeae2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      /* Image column */
+      .project-image-wrap {
+        width: 100%;
+        aspect-ratio: 4/3;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        background: #edeae2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .project-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.35s ease;
-    }
+      .project-image-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease;
+      }
 
-    .project-image-wrap:hover img { transform: scale(1.03); }
+      .project-image-wrap:hover img {
+        transform: scale(1.03);
+      }
 
-    .img-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
+      .img-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
 
-    .img-placeholder svg { opacity: 0.35; }
+      .img-placeholder svg {
+        opacity: 0.35;
+      }
 
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      border: 1px solid var(--border);
-    }
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        border: 1px solid var(--border);
+      }
 
-    .skill-group {
-      padding: 20px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+      .skill-group {
+        padding: 20px;
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
 
-    .skill-group:nth-child(even) { border-right: none; }
+      .skill-group:nth-child(even) {
+        border-right: none;
+      }
 
-    .skill-group-name {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
+      .skill-group-name {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
 
-    .skill-group ul { list-style: none; }
-    .skill-group li { font-size: 13px; padding: 2px 0; }
+      .skill-group ul {
+        list-style: none;
+      }
+      .skill-group li {
+        font-size: 13px;
+        padding: 2px 0;
+      }
 
-    footer {
-      padding: 40px 0 60px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.4s forwards;
-    }
+      footer {
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.4s forwards;
+      }
 
-    footer span, footer a {
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+      footer span,
+      footer a {
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
 
-    footer a:hover { color: var(--accent); }
+      footer a:hover {
+        color: var(--accent);
+      }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    @media (max-width: 580px) {
-      .project { grid-template-columns: 1fr; }
-      .project-image-wrap { order: -1; aspect-ratio: 16/9; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .skill-group:nth-child(odd)  { border-right: 1px solid var(--border); }
-      .skill-group:nth-child(even) { border-right: none; }
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-
-  <!-- HEADER -->
-  <header>
-    <p class="tagline">Software Engineer — Class of 2025</p>
-    <h1 class="name">Your <em>Name</em></h1>
-    <p class="bio">
-      I build things for the web. Currently finishing my CS degree at [University]
-      and looking for full-time roles in [backend / frontend / full-stack].
-      I care about clean code, good abstractions, and software that actually works.
-    </p>
-    <nav class="links">
-      <a href="mailto:you@email.com">Email</a>
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-      <a href="/resume.pdf" target="_blank">Résumé</a>
-    </nav>
-  </header>
-
-  <hr />
-
-  <!-- PROJECTS -->
-  <section>
-    <p class="section-label">Projects</p>
-
-    <!-- Project 1 -->
-    <div class="project">
-      <div class="project-body">
-        <div class="project-header">
-          <h2 class="project-title">Project One</h2>
-          <span class="project-year">2024</span>
-        </div>
-        <p class="project-desc">
-          A short description of what this project does and why you built it.
-          Keep it conversational — like you're explaining it at a coffee chat.
+      @media (max-width: 580px) {
+        .project {
+          grid-template-columns: 1fr;
+        }
+        .project-image-wrap {
+          order: -1;
+          aspect-ratio: 16/9;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .skill-group:nth-child(odd) {
+          border-right: 1px solid var(--border);
+        }
+        .skill-group:nth-child(even) {
+          border-right: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <header>
+        <p class="tagline">
+          Robotics Engineer — University of Toronto, Spring 2026
         </p>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">PostgreSQL</span>
-        </div>
-        <div class="project-links">
-          <a href="project-one.html" class="read-more">Read more →</a>
-          <a href="https://github.com/yourusername/project-one" target="_blank">GitHub →</a>
-          <a href="https://yourproject.com" target="_blank">Live →</a>
-        </div>
-      </div>
-      <!-- Set src to your screenshot, e.g. "images/project-one.png" -->
-      <div class="project-image-wrap" id="img1">
-        <img src="images/project-one.png" alt="Project One screenshot"
-          onerror="document.getElementById('img1').innerHTML='<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'" />
-      </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="project">
-      <div class="project-body">
-        <div class="project-header">
-          <h2 class="project-title">Project Two</h2>
-          <span class="project-year">2024</span>
-        </div>
-        <p class="project-desc">
-          What was the interesting technical challenge? What did you learn?
-          An honest reflection here is more compelling than bullet points.
+        <h1 class="name">Trent <em>Rossos</em></h1>
+        <p class="bio">
+          I build systems that operate in the physical world; autonomous
+          vehicles, robotic arms, exoskeletons, and UAVs. Currently completing a
+          B.A.Sc. in Engineering Science with a robotics major at the University
+          of Toronto, with experience spanning ADAS at Magna Electronics,
+          robotic manipulation at York University, and assistive technology at
+          Toronto Rehab.
         </p>
-        <div class="project-tags">
-          <span class="tag">React</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Node.js</span>
-        </div>
-        <div class="project-links">
-          <a href="project-two.html" class="read-more">Read more →</a>
-          <a href="https://github.com/yourusername/project-two" target="_blank">GitHub →</a>
-        </div>
-      </div>
-      <div class="project-image-wrap" id="img2">
-        <img src="images/project-two.png" alt="Project Two screenshot"
-          onerror="document.getElementById('img2').innerHTML='<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'" />
-      </div>
-    </div>
+        <nav class="links">
+          <a href="mailto:trent.rossos@mail.utoronto.ca">Email</a>
+          <a href="https://linkedin.com/in/trentrossos" target="_blank"
+            >LinkedIn</a
+          >
+          <a href="/resume.pdf" target="_blank">Résumé</a>
+        </nav>
+      </header>
 
-    <!-- Project 3 -->
-    <div class="project">
-      <div class="project-body">
-        <div class="project-header">
-          <h2 class="project-title">Project Three</h2>
-          <span class="project-year">2023</span>
-        </div>
-        <p class="project-desc">
-          Class project or weekend hack — doesn't matter. What matters is that
-          you can talk clearly about what you built and what you'd change.
-        </p>
-        <div class="project-tags">
-          <span class="tag">C++</span>
-          <span class="tag">OpenGL</span>
-        </div>
-        <div class="project-links">
-          <a href="project-three.html" class="read-more">Read more →</a>
-          <a href="https://github.com/yourusername/project-three" target="_blank">GitHub →</a>
-        </div>
-      </div>
-      <div class="project-image-wrap" id="img3">
-        <img src="images/project-three.png" alt="Project Three screenshot"
-          onerror="document.getElementById('img3').innerHTML='<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'" />
-      </div>
-    </div>
+      <hr />
 
-  </section>
+      <!-- PROJECTS -->
+      <section>
+        <p class="section-label">Projects and Relevant Experience</p>
 
-  <hr />
-
-  <!-- SKILLS -->
-  <section>
-    <p class="section-label">Skills</p>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <p class="skill-group-name">Languages</p>
-        <ul>
-          <li>Python</li>
-          <li>JavaScript</li>
-          <li>TypeScript</li>
-          <li>C++</li>
-          <li>SQL</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-name">Frameworks</p>
-        <ul>
-          <li>React</li>
-          <li>FastAPI</li>
-          <li>Node.js</li>
-          <li>Express</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-name">Tools</p>
-        <ul>
-          <li>Git</li>
-          <li>Docker</li>
-          <li>Linux</li>
-          <li>AWS</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-name">Concepts</p>
-        <ul>
-          <li>REST APIs</li>
-          <li>Databases</li>
-          <li>Algorithms</li>
-          <li>CI/CD</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <hr />
-
-  <!-- FOOTER -->
-  <footer>
-    <span>Built with HTML & CSS — hosted on GitHub Pages</span>
-    <a href="https://github.com/yourusername/yourusername.github.io" target="_blank">View source</a>
-  </footer>
-
+        <!-- Project 1: Thesis SLAM -->
+        <div class="project">
+          <div class="project-body">
+            <div class="project-header">
+              <h2 class="project-title">Crazyflie Nano UAV Onboard Mapping and Exploration</h2>
+              <span class="project-year">2026</span>
+            </div>
+            <p class="project-desc">
+              For my undergraduate thesis, I developed a fully embeded mapping and exploration pipeline for the Crazyflie 2.1 Nano-UAV platform. The system fuses ToF
+              depth data to build a real-time occupancy map entirely on the
+              GAP-8 MCU, working within tight memory and compute constraints. 
+            </p>
+            <div class="project-tags">
+              <span class="tag">C</span>
+              <span class="tag">GAP-8</span>
+              <span class="tag">SLAM</span>
+              <span class="tag">STM32</span>
+              <span class="tag">Embedded</span>
+            </div>
+            <div class="project-links">
+              <a href="project-crazyflie.html" class="read-more">Read more →</a>
+			  <a href="rossostr_thesis_final_report.pdf" target="_blank">Thesis Report →</a>
+              <a href="https://github.com/trentrossos" target="_blank"
+                >GitHub →</a
+              >
+            </div>
+          </div>
+<div class="project-image-wrap" id="img-crazyflie">
+  <img
+    src="./images/crazyflie/crazyflie.jpg"
+    alt="Crazyflie UAV SLAM"
+    onerror="document.getElementById('img-crazyflie').innerHTML = '<div class=img-placeholder>Add screenshot</div>'"
+  />
 </div>
-</body>
+        </div>
+
+		 <!-- Project 2: Capstone -->
+        <div class="project">
+          <div class="project-body">
+            <div class="project-header">
+              <h2 class="project-title">Autonomous Drone Capstone</h2>
+              <span class="project-year">2026</span>
+            </div>
+            <p class="project-desc">
+              Robotics Engineering Capstone, where an autonomous drone built on PX4 using the Cube Orange autopilot and Jetson Nano for onboard processing, achieved fall detection and april tag tracking. Localization was done using a Vicon motion capture system, with a Kalman Filter fusing IMU and Vicon data for state estimation. The drone performed autonomous takeoff, hover, and landing, demonstrating the ability to track and follow a moving target while avoiding obstacles in a controlled environment.
+            </p>
+            <div class="project-tags">
+          <div class="project-tags">
+            <span class="tag">PX4</span>
+            <span class="tag">Jetson Nano</span>
+            <span class="tag">ROS2</span>
+            <span class="tag">MAVROS</span>
+            <span class="tag">YOLOv8-Pose</span>
+            <span class="tag">AprilTag</span>
+            <span class="tag">Vicon</span>
+          </div>
+            </div>
+            <div class="project-links">
+              <a href="px4-drone-capstone.html" class="read-more">Read more →</a>
+			  <a href="rossostr_thesis_final_report.pdf" target="_blank">Thesis Report →</a>
+              <a href="https://github.com/trentrossos" target="_blank"
+                >GitHub →</a
+              >
+            </div>
+          </div>
+          <div class="project-image-wrap" id="img1">
+            <img
+              src="./images/crazyflie/crazyflie.jpg"
+              alt="Crazyflie UAV SLAM"
+              onerror="
+                document.getElementById('img1').innerHTML =
+                  '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
+              "
+            />
+          </div>
+        </div>
+		<!-- Project 3: 521 Labs -->
+        <div class="project">
+          <div class="project-body">
+            <div class="project-header">
+              <h2 class="project-title">Mobile Robotics and Perception Labs</h2>
+              <span class="project-year">2026</span>
+            </div>
+            <p class="project-desc">
+              As part of the Mobile Robtoics and Perception course, I completed a three-part project sequence using the TurtleBot 3 Waffle Pi platform, focused on motion planning, mapping, and localization. In the first lab, I implemented RRT and RRT* path planning algorithms in simulation, developing a custom ROS package to generate and visualize paths in Gazebo. The second lab involved real-world calibration and occupancy grid mapping using the robot's LiDAR and IMU sensors, with ROS nodes for sensor fusion and map generation. The final lab focused on localization, where I implemented a particle filter to fuse odometry and LiDAR data for accurate pose estimation, demonstrating successful navigation in both simulated and physical environments.
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Path Planning</span>
+              <span class="tag">Mapping</span>
+              <span class="tag">Localization</span>
+              <!-- <span class="tag">STM32</span>
+              <span class="tag">Embedded</span> -->
+            </div>
+            <div class="project-links">
+              <a href="rob521-labs.html" class="read-more">Read more →</a>
+			  <a href="rossostr_thesis_final_report.pdf" target="_blank">Thesis Report →</a>
+              <a href="https://github.com/trentrossos" target="_blank"
+                >GitHub →</a
+              >
+            </div>
+          </div>
+          <div class="project-image-wrap" id="img1">
+            <img
+              src="./images/crazyflie/crazyflie.jpg"
+              alt="Crazyflie UAV SLAM"
+              onerror="
+                document.getElementById('img1').innerHTML =
+                  '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
+              "
+            />
+          </div>
+        </div>
+		<!-- Project 3: Robot Localization -->
+        <div class="project">
+          <div class="project-body">
+            <div class="project-header">
+              <h2 class="project-title">Crazyflie Nano UAV Onboard SLAM</h2>
+              <span class="project-year">2025</span>
+            </div>
+            <p class="project-desc">
+              Kiwi‑drive rover with LiDAR‑based localization and a retractable
+              gripper, designed to navigate a walled maze and deliver a block in
+              under five minutes. This project was part of a semester long design
+              course as part of my engineering curriculum. I was responsible for
+              the drivetrain design and mechanical development. The drivetrain
+              is a custom kiwi‑drive system with three independently driven
+              omni‑wheels, allowing for holozoic movement in tight spaces. The
+              gripper is a retractable mechanism mounted on a linear actuator,
+              enabling the rover to pick up and deliver the block.
+            </p>
+            <div class="project-tags">
+              <span class="tag">C</span>
+              <span class="tag">GAP-8</span>
+              <span class="tag">SLAM</span>
+              <span class="tag">STM32</span>
+              <span class="tag">Embedded</span>
+            </div>
+            <div class="project-links">
+              <a href="project-mie444-rover.html" class="read-more">Read more →</a>
+              <!-- <a href="https://github.com/trentrossos" target="_blank"
+                >GitHub →</a
+              > -->
+            </div>
+          </div>
+          <div class="project-image-wrap" id="img1">
+            <img
+              src="images/rover.png"
+              alt="Kiwi-drive rover"
+              onerror="
+                document.getElementById('img1').innerHTML =
+                  '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
+              "
+            />
+          </div>
+        </div>
+
+        <!-- Project 3: Robot Localization -->
+        <div class="project">
+          <div class="project-body">
+            <div class="project-header">
+              <h2 class="project-title">Autonomous Robot Localization</h2>
+              <span class="project-year">2024</span>
+            </div>
+            <p class="project-desc">
+              Localization and navigation system for the TurtleBot 3 Waffle Pi
+              using a Kalman Filter fused with ultrasonic sensor data, combined
+              with Bayesian Filtering and PID control for closed-loop path
+              following.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">ROS</span>
+              <span class="tag">Kalman Filter</span>
+              <span class="tag">PID</span>
+            </div>
+            <div class="project-links">
+              <a href="project-localization.html" class="read-more"
+                >Read more →</a
+              >
+              <a href="https://github.com/trentrossos" target="_blank"
+                >GitHub →</a
+              >
+            </div>
+          </div>
+          <div class="project-image-wrap" id="img2">
+            <img
+              src="images/localization.png"
+              alt="Robot Localization"
+              onerror="
+                document.getElementById('img2').innerHTML =
+                  '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
+              "
+            />
+          </div>
+        </div>
+
+        <!-- Project 3: NHL Sentiment Analysis -->
+        <div class="project">
+          <div class="project-body">
+            <div class="project-header">
+              <h2 class="project-title">NHL Game Outcome Prediction</h2>
+              <span class="project-year">2023</span>
+            </div>
+            <p class="project-desc">
+              A sentiment analysis pipeline that predicts NHL game outcomes by
+              processing post-game tweets. Logistic Regression model built with
+              scikit-learn, achieving 91% accuracy through hyperparameter
+              tuning.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="project-nhl.html" class="read-more">Read more →</a>
+              <a href="https://github.com/trentrossos" target="_blank"
+                >GitHub →</a
+              >
+            </div>
+          </div>
+          <div class="project-image-wrap" id="img3">
+            <img
+              src="images/nhl.png"
+              alt="NHL Sentiment Analysis"
+              onerror="
+                document.getElementById('img3').innerHTML =
+                  '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
+              "
+            />
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <!-- SKILLS -->
+      <section>
+        <p class="section-label">Technical Skills</p>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <p class="skill-group-name">Languages</p>
+            <ul>
+              <li>Python</li>
+              <li>C / C++</li>
+              <li>MATLAB</li>
+              <li>Java</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-name">Robotics & ML</p>
+            <ul>
+              <li>ROS</li>
+              <li>PyTorch</li>
+              <li>TensorFlow</li>
+              <li>OpenCV</li>
+              <li>Scikit-learn</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-name">Tools</p>
+            <ul>
+              <li>Git</li>
+              <li>Vector CANoe</li>
+              <li>JTAG Debuggers</li>
+              <li>3D CAD / CAM</li>
+              <li>Rapid Prototyping</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-name">Domains</p>
+            <ul>
+              <li>ADAS / AV</li>
+              <li>SLAM</li>
+              <li>Embedded Systems</li>
+              <li>Robot Manipulation</li>
+              <li>Assistive Tech</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <!-- FOOTER -->
+      <footer>
+        <span>Trent Rossos — Robotics Engineering, University of Toronto</span>
+        <a href="mailto:trent.rossos@mail.utoronto.ca"
+          >trent.rossos@mail.utoronto.ca</a
+        >
+      </footer>
+    </div>
+  </body>
 </html>

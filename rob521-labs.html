@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Robotics Labs — Trent Rossos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --bg: #f5f2eb;
+        --ink: #1a1a18;
+        --muted: #888880;
+        --accent: #c84b2f;
+        --border: #dedad2;
+        --placeholder: #ece7de;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Serif", serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .back {
+        padding: 32px 0 0;
+        opacity: 0;
+        animation: fadeUp 0.6s ease forwards;
+      }
+      .back a {
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 1px;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .back a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+      .hero {
+        padding: 48px 0 40px;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.05s forwards;
+      }
+      .project-meta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .project-year {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        padding: 2px 8px;
+        border-radius: 2px;
+      }
+      .project-title {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin-bottom: 20px;
+      }
+      .project-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .project-summary {
+        font-size: 15px;
+        line-height: 1.9;
+        margin-bottom: 28px;
+      }
+      .external-links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .external-links a {
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 1px;
+        transition: border-color 0.2s;
+      }
+      .external-links a:hover {
+        border-bottom-color: var(--accent);
+      }
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+      .images {
+        padding: 72px 0;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.1s forwards;
+      }
+      .image-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .image-grid.full-width {
+        grid-template-columns: 1fr;
+      }
+      .img-wrap {
+        border: 1px solid var(--border);
+        overflow: hidden;
+        background: var(--placeholder);
+        aspect-ratio: 4/3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+      .img-wrap.placeholder {
+        color: var(--muted);
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .img-caption {
+        font-size: 11px;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 10px;
+        letter-spacing: 0.03em;
+      }
+      .content-section {
+        padding: 48px 0;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+      }
+      .content-section:nth-of-type(1) { animation-delay: 0.15s; }
+      .content-section:nth-of-type(2) { animation-delay: 0.22s; }
+      .content-section:nth-of-type(3) { animation-delay: 0.29s; }
+      .content-section:nth-of-type(4) { animation-delay: 0.36s; }
+      .section-label {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 24px;
+      }
+      .content-section h3 {
+        font-family: "Instrument Serif", serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-bottom: 24px;
+        margin-top: 8px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+      .content-section p {
+        line-height: 1.9;
+        margin-bottom: 16px;
+      }
+      .content-section p:last-child {
+        margin-bottom: 0;
+      }
+      code {
+        font-family: "Noto Serif", serif;
+        font-size: 12px;
+        background: #ebe8df;
+        padding: 1px 5px;
+        border-radius: 2px;
+        color: var(--accent);
+      }
+      .callout {
+        border-left: 2px solid var(--accent);
+        padding: 14px 20px;
+        margin: 20px 0;
+        background: #f0ece3;
+      }
+      .callout p {
+        font-size: 13px;
+        color: var(--ink);
+        margin: 0;
+      }
+      footer {
+        padding: 40px 0 60px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      footer span, footer a {
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      footer a:hover {
+        color: var(--accent);
+      }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @media (max-width: 500px) {
+        .image-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="back">
+        <a href="index.html">← Back to projects</a>
+      </nav>
+
+      <div class="hero">
+        <div class="project-meta">
+          <span class="project-year">2026</span>
+          <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Path Planning</span>
+              <span class="tag">Mapping</span>
+              <span class="tag">Localization</span>
+          </div>
+        </div>
+
+        <h1 class="project-title">Mobile Robotics Labs <em>Planning, Mapping, and Localization</em></h1>
+
+        <p class="project-summary">
+          As part of my Mobile Robotics and Perception course I completed three labs using the TurtleBot platform focused on motion planning, calibration, occupancy grid mapping, and localization. Across the labs, I moved from simulation-based path planning with RRT and RRT* to real-robot calibration and mapping, then to particle-filter localization and SLAM, with a strong emphasis on understanding how performance changes between ideal simulation and physical deployment.
+        </p>
+
+        <div class="external-links">
+          <a href="ROB521-Lab-2.pdf" target="_blank" rel="noopener noreferrer">Lab 2 report →</a>
+          <a href="ROB521 Lab 3.pdf" target="_blank" rel="noopener noreferrer">Lab 3 report →</a>
+          <a href="ROB521-Lab-4.pdf" target="_blank" rel="noopener noreferrer">Lab 4 report →</a>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap placeholder">Lab 1 image placeholder<br />RRT / RRT* simulation result</div>
+          <div class="img-wrap placeholder">Lab 2 image placeholder<br />Calibration, odometry, or occupancy grid map</div>
+        </div>
+        <p class="img-caption">Replace these placeholders with screenshots from the reports or RViz outputs.</p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Lab 2</p>
+
+        <h3>RRT and RRT* path planning in simulation</h3>
+        <p>
+          The first lab focused on sampling-based motion planning for a unicycle robot using both RRT and RRT*. The core RRT loop followed the standard structure: sample a point in free space, identify the nearest node in the tree, simulate the control needed to steer toward the sample, append a new node at the end of the resulting trajectory, and repeat until the goal was reached. The most important implementation challenge was not the tree logic itself, but generating a feasible control input and accurately simulating the resulting motion.
+        </p>
+        <p>
+          To do this, I used a <code>simulate_trajectory</code> function that computed the distance and desired heading to the target pose, then passed those errors into a proportional controller. The resulting linear and angular velocities were applied through a discretized unicycle model in <code>trajectory_rollout</code>, where each new pose was computed from the current pose plus the commanded velocity over one timestep. Since the rollout was initially defined in the robot frame, the full trajectory then had to be transformed into the global frame using a 2D rotation matrix and translation.
+        </p>
+        <p>
+          I then extended the planner to RRT*, which improves on standard RRT by choosing the parent that minimizes path cost among nearby nodes and by rewiring the tree when a lower-cost connection is found. In practice, RRT* produced a shorter final path than RRT, reducing total path distance from 93.60 m to 79.63 m, and reached the goal in fewer iterations, although it took slightly longer overall due to the added optimization overhead. This lab was a strong introduction to the tradeoff between computational cost and path quality in motion planning.
+        </p>
+
+        <div class="callout">
+          <p>
+            Key takeaway: getting a planner to work was not just about graph search. It depended on modeling the robot’s motion correctly, choosing controls that respected the unicycle dynamics, and understanding how better path quality in RRT* comes at the cost of extra computation.
+          </p>
+        </div>
+      </div>
+
+      <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap">
+            <img src="images/ROB521/lab2/rrt.png" alt="RRT path planning result" />
+          </div>
+          <div class="img-wrap">
+            <img src="images/ROB521/lab2/rrt_star.png" alt="RRT* path planning result" />
+          </div>
+        </div>
+        <p class="img-caption">
+          Left: RRT path planning · Right: RRT* path planning
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Lab 3</p>
+
+        <h3>Calibration, motion estimation, and occupancy grid mapping</h3>
+        <p>
+          The second lab moved from planning to system identification and mapping on the TurtleBot. I first calibrated the robot by estimating wheel radius and wheel baseline from encoder data. For wheel radius, the robot was driven forward 0.75 m and encoder ticks were converted into wheel rotation, producing an estimate of 0.033 m, which matched the factory value. For wheel baseline, the robot was rotated in place for three full turns to reduce the effect of individual encoder errors, resulting in a measured baseline of 0.295 m compared to the nominal 0.287 m. The discrepancy was likely caused by wheel slip and deformation during in-place rotation.
+        </p>
+        <p>
+          I then compared onboard and local motion estimation while following both circular and more irregular trajectories. The estimated <code>x</code>, <code>y</code>, and heading values tracked the expected motion closely overall, but small deviations appeared during fast direction changes, especially during tight curvature and zig-zag motion. These errors highlighted a recurring theme in mobile robotics: even with reasonable calibration, odometry alone is never perfect, and small modeling errors become visible when the robot accelerates or turns aggressively.
+        </p>
+        <p>
+          The final part of the lab implemented occupancy grid mapping using LiDAR. For each scan ray, cells along the beam were updated as free space by decreasing their log-odds, while the endpoint was updated as occupied by increasing its log-odds. I used a stronger occupied update than free-space update, with capped log-odds values to prevent any part of the map from becoming permanently certain. In simulation, this produced a coherent map of the environment, but on the real robot the map showed blur and distortion due to dead-reckoning drift, wheel slip, and other physical effects absent in simulation.
+        </p>
+
+        <div class="callout">
+          <p>
+            Key takeaway: Lab 2 made the gap between simulation and hardware very clear. A mapping pipeline that looks clean in simulation becomes much noisier on a real robot when odometry drift, uneven floors, and wheel slip start to affect pose estimation.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap">
+            <img src="images/ROB521/lab3/graph.png" alt="Predicted Odometry vs Real Odometry" />
+          </div>
+          <div class="img-wrap">
+            <img src="images/ROB521/lab3/occupancy.png" alt="Occupancy Grid Map" />
+          </div>
+        </div>
+        <p class="img-caption">
+          Left: Predicted Odometry vs Real Odometry · Right: Occupancy Grid Map
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Lab 4</p>
+
+        <h3>AMCL localization and Gmapping in simulation and real environments</h3>
+        <p>
+          The third lab focused on localization and SLAM using particle filters. In the first part, I tuned AMCL in <code>turtlebot3_world</code> by varying the minimum and maximum number of particles and by increasing the odometry noise parameters. I found that localization could still converge with as few as 6 minimum particles and 68 maximum particles, provided the robot moved slowly enough. However, once velocity increased beyond roughly 0.1 m/s, the filter became much more likely to diverge. Similarly, increasing the odometry noise values too far eventually caused the particle cloud to lose track of the robot pose.
+        </p>
+        <p>
+          I then used Gmapping to generate maps in simulation and compared the results to the earlier occupancy grid maps from Lab 2. The difference was immediately visible: because Gmapping combines localization and mapping, it could continuously correct for odometry drift using LiDAR scan matching, producing cleaner walls, better alignment, and more globally consistent structure. This was especially noticeable in comparison with Lab 2, where maps built primarily from odometry tended to show duplicated or blurred walls over time.
+        </p>
+        <p>
+          The final part of the lab extended this work to larger and real environments, including <code>willowgarage_world</code> and the Myhal space. In long corridors and large open regions, accumulated error still caused problems during loop closure, especially where the robot re-entered previously mapped areas and the walls failed to align cleanly. On the real robot, these effects were even more pronounced: noisy wheel odometry, slip, reflective surfaces, and environmental variability caused wall boundaries to blur or jump, reinforcing how much more demanding real-world SLAM is than its simulated counterpart.
+        </p>
+
+        <div class="callout">
+          <p>
+            Key takeaway: particle-filter localization dramatically improved map quality, but it did not eliminate the underlying challenges of long feature-poor corridors, loop closure, or real-world sensor noise. Lab 3 showed how SLAM reduces drift rather than magically removing it.
+          </p>
+        </div>
+      </div>
+
+      <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap placeholder">Lab 3 placeholder<br />Insert AMCL particle filter screenshot</div>
+          <div class="img-wrap placeholder">Lab 3 placeholder<br />Insert Gmapping result or Myhal environment map</div>
+        </div>
+        <p class="img-caption">Suggested images: AMCL convergence, turtlebot3_world Gmapping map, willowgarage comparison, or real-environment Myhal scan.</p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Reflection</p>
+
+        <h3>What the three labs built toward</h3>
+        <p>
+          Taken together, the three labs formed a progression from planning to estimation to localization-aware mapping. Lab 1 dealt with how to generate feasible motion through a space, Lab 2 focused on how robot motion is actually measured and how uncertainty enters the map, and Lab 3 introduced the probabilistic tools needed to correct that uncertainty in a more principled way.
+        </p>
+        <p>
+          The most valuable lesson across the sequence was how strongly performance depends on the gap between theory and deployment. Algorithms that are straightforward in simulation become much harder to trust once encoder noise, wheel slip, poor loop closures, and inconsistent sensing are introduced. Working through these labs on TurtleBot made those tradeoffs concrete and gave me a stronger intuition for planning, state estimation, and SLAM as parts of a single robotics pipeline.
+        </p>
+      </div>
+
+      <footer>
+        <span>Trent Rossos — Robotics Engineering, University of Toronto</span>
+        <a href="index.html">← All projects</a>
+      </footer>
+    </div>
+  </body>
+</html>
