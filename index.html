@@ -46,13 +46,17 @@
         <div class="project">
           <div class="project-body">
             <div class="project-header">
-              <h2 class="project-title">Crazyflie Nano UAV Onboard Mapping and Exploration</h2>
+              <h2 class="project-title">
+                Crazyflie Nano UAV Onboard Mapping and Exploration
+              </h2>
               <span class="project-year">2026</span>
             </div>
             <p class="project-desc">
-              For my undergraduate thesis, I developed a fully embedded mapping and exploration pipeline for the Crazyflie 2.1 Nano-UAV platform. The system fuses ToF
-              depth data to build a real-time occupancy map entirely on the
-              GAP-8 MCU, working within tight memory and compute constraints. 
+              For my undergraduate thesis, I developed a fully embedded mapping
+              and exploration pipeline for the Crazyflie 2.1 Nano-UAV platform.
+              The system fuses ToF depth data to build a real-time occupancy map
+              entirely on the GAP-8 MCU, working within tight memory and compute
+              constraints.
             </p>
             <div class="project-tags">
               <span class="tag">C</span>
@@ -63,22 +67,29 @@
             </div>
             <div class="project-links">
               <a href="project-crazyflie.html" class="read-more">Read more →</a>
-			  <a href="rossostr_thesis_final_report.pdf" target="_blank">Thesis Report →</a>
+              <a href="rossostr_thesis_final_report.pdf" target="_blank"
+                >Thesis Report →</a
+              >
               <a href="https://github.com/trentrossos" target="_blank"
                 >GitHub →</a
               >
             </div>
           </div>
-<div class="project-image-wrap" id="img-crazyflie">
-  <img
-    src="./images/crazyflie/crazyflie.jpg"
-    alt="Crazyflie UAV SLAM"
-    onerror="document.getElementById('img-crazyflie').innerHTML = '<div class=img-placeholder>Add screenshot</div>'"
-  />
-</div>
+          <a href="project-crazyflie.html">
+            <div class="project-image-wrap" id="img-crazyflie">
+              <img
+                src="./images/crazyflie/crazyflie.jpg"
+                alt="Crazyflie UAV SLAM"
+                onerror="
+                  document.getElementById('img-crazyflie').innerHTML =
+                    '<div class=img-placeholder>Add screenshot</div>'
+                "
+              />
+            </div>
+          </a>
         </div>
 
-		 <!-- Project 2: Capstone -->
+        <!-- Project 2: Capstone -->
         <div class="project">
           <div class="project-body">
             <div class="project-header">
@@ -86,37 +97,53 @@
               <span class="project-year">2026</span>
             </div>
             <p class="project-desc">
-              Robotics Engineering Capstone, where an autonomous drone built on PX4 using the Cube Orange autopilot and Jetson Nano for onboard processing, achieved fall detection and april tag tracking. Localization was done using a Vicon motion capture system, with a Kalman Filter fusing IMU and Vicon data for state estimation. The drone performed autonomous takeoff, hover, and landing, demonstrating the ability to track and follow a moving target while avoiding obstacles in a controlled environment.
+              Robotics Engineering Capstone, where an autonomous drone built on
+              PX4 using the Cube Orange autopilot and Jetson Nano for onboard
+              processing, achieved fall detection and april tag tracking.
+              Localization was done using a Vicon motion capture system, with a
+              Kalman Filter fusing IMU and Vicon data for state estimation. The
+              drone performed autonomous takeoff, hover, and landing,
+              demonstrating the ability to track and follow a moving target
+              while avoiding obstacles in a controlled environment.
             </p>
             <div class="project-tags">
-          <div class="project-tags">
-            <span class="tag">PX4</span>
-            <span class="tag">Jetson Nano</span>
-            <span class="tag">ROS2</span>
-            <span class="tag">MAVROS</span>
-            <span class="tag">YOLOv8-Pose</span>
-            <span class="tag">AprilTag</span>
-            <span class="tag">Vicon</span>
-          </div>
+              <div class="project-tags">
+                <span class="tag">PX4</span>
+                <span class="tag">Jetson Nano</span>
+                <span class="tag">ROS2</span>
+                <span class="tag">MAVROS</span>
+                <span class="tag">YOLOv8-Pose</span>
+                <span class="tag">AprilTag</span>
+                <span class="tag">Vicon</span>
+              </div>
             </div>
             <div class="project-links">
-              <a href="px4-drone-capstone.html" class="read-more">Read more →</a>
-			  <a href="rossostr_thesis_final_report.pdf" target="_blank">Thesis Report →</a>
+              <a href="px4-drone-capstone.html" class="read-more"
+                >Read more →</a
+              >
+              <a href="ROB498/ROB498_Final_Report.pdf" target="_blank"
+                >Final Report →</a
+              >
               <a href="https://github.com/trentrossos" target="_blank"
                 >GitHub →</a
               >
             </div>
           </div>
-		  <!-- src="./images/ROB498/capstone_drone_crop.jpg" -->
-          <div class="project-image-wrap" id="capstone-img">
-            <img
-			  src="./images/ROB498/capstone_drone_crop.jpg"
-              alt="Capstone Drone"
-              onerror="document.getElementById('capstone-img').innerHTML = '<div class=img-placeholder>Add screenshot</div>'"
-			/>
-          </div>
+          <!-- src="./images/ROB498/capstone_drone_crop.jpg" -->
+          <a href="px4-drone-capstone.html">
+            <div class="project-image-wrap" id="capstone-img">
+              <img
+                src="./images/ROB498/capstone_drone_crop.jpg"
+                alt="Capstone Drone"
+                onerror="
+                  document.getElementById('capstone-img').innerHTML =
+                    '<div class=img-placeholder>Add screenshot</div>'
+                "
+              />
+            </div>
+          </a>
         </div>
-		<!-- Project 3: 521 Labs -->
+        <!-- Project 3: 521 Labs -->
         <div class="project">
           <div class="project-body">
             <div class="project-header">
@@ -124,7 +151,20 @@
               <span class="project-year">2026</span>
             </div>
             <p class="project-desc">
-              As part of the Mobile Robtoics and Perception course, I completed a three-part project sequence using the TurtleBot 3 Waffle Pi platform, focused on motion planning, mapping, and localization. In the first lab, I implemented RRT and RRT* path planning algorithms in simulation, developing a custom ROS package to generate and visualize paths in Gazebo. The second lab involved real-world calibration and occupancy grid mapping using the robot's LiDAR and IMU sensors, with ROS nodes for sensor fusion and map generation. The final lab focused on localization, where I implemented a particle filter to fuse odometry and LiDAR data for accurate pose estimation, demonstrating successful navigation in both simulated and physical environments.
+              As part of the Mobile Robtoics and Perception course, I completed
+              a three-part project sequence using the TurtleBot 3 Waffle Pi
+              platform, focused on motion planning, mapping, and localization.
+              In the first lab, I implemented RRT and RRT* path planning
+              algorithms in simulation, developing a custom ROS package to
+              generate and visualize paths in Gazebo. The second lab involved
+              real-world calibration and occupancy grid mapping using the
+              robot's LiDAR and IMU sensors, with ROS nodes for sensor fusion
+              and map generation. The final lab focused on localization, where I
+              implemented a particle filter to fuse odometry and LiDAR data for
+              accurate pose estimation, demonstrating successful navigation in
+              both simulated and physical environments.
+            </p>
+
             <div class="project-tags">
               <span class="tag">Python</span>
               <span class="tag">Path Planning</span>
@@ -135,12 +175,13 @@
             </div>
             <div class="project-links">
               <a href="rob521-labs.html" class="read-more">Read more →</a>
-			  <a href="rossostr_thesis_final_report.pdf" target="_blank">Thesis Report →</a>
+              <!-- <a href="rossostr_thesis_final_report.pdf" target="_blank">Thesis Report →</a> -->
               <a href="https://github.com/trentrossos" target="_blank"
                 >GitHub →</a
               >
             </div>
           </div>
+		  <a href="rob521-labs.html">
           <div class="project-image-wrap" id="waffleBot-img">
             <img
               src="./images/Rob521/turtlebot3-waffle-pi.jpg"
@@ -151,8 +192,9 @@
               "
             />
           </div>
+		  </a>
         </div>
-		<!-- Project 4: MIE444 KiWi drive robot -->
+        <!-- Project 4: MIE444 KiWi drive robot -->
         <div class="project">
           <div class="project-body">
             <div class="project-header">
@@ -162,13 +204,14 @@
             <p class="project-desc">
               Kiwi‑drive rover with LiDAR‑based localization and a retractable
               gripper, designed to navigate a walled maze and deliver a block in
-              under five minutes. This project was part of a semester long design
-              course as part of my engineering curriculum. I was responsible for
-              the drivetrain design and mechanical development. The drivetrain
-              is a custom kiwi‑drive system with three independently driven
-              omni‑wheels, allowing for holozoic movement in tight spaces. The
-              gripper is a retractable mechanism mounted on a linear actuator,
-              enabling the rover to pick up and deliver the block.
+              under five minutes. This project was part of a semester long
+              design course as part of my engineering curriculum. I was
+              responsible for the drivetrain design and mechanical development.
+              The drivetrain is a custom kiwi‑drive system with three
+              independently driven omni‑wheels, allowing for holozoic movement
+              in tight spaces. The gripper is a retractable mechanism mounted on
+              a linear actuator, enabling the rover to pick up and deliver the
+              block.
             </p>
             <div class="project-tags">
               <span class="tag">C</span>
@@ -178,97 +221,122 @@
               <span class="tag">Embedded</span>
             </div>
             <div class="project-links">
-              <a href="project-mie444-rover.html" class="read-more">Read more →</a>
+              <a href="project-mie444-rover.html" class="read-more"
+                >Read more →</a
+              >
+              <a href="MIE444_Team9_Report.pdf" target="_blank">Report →</a>
               <!-- <a href="https://github.com/trentrossos" target="_blank"
                 >GitHub →</a
               > -->
             </div>
           </div>
-          <div class="project-image-wrap" id="img1">
-            <img
-              src="images/MIE444/front_offset.png"
-              alt="Kiwi-drive rover"
-              onerror="
-                document.getElementById('img1').innerHTML =
-                  '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
-              "
-            />
-          </div>
+          <a href="project-mie444-rover.html">
+            <div class="project-image-wrap" id="img1">
+              <img
+                src="images/MIE444/front_offset.png"
+                alt="Kiwi-drive rover"
+                onerror="
+                  document.getElementById('img1').innerHTML =
+                    '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
+                "
+              />
+            </div>
+          </a>
         </div>
 
         <!-- Project 5: Assistive Robotics Wheelchair Interface -->
+        <div class="project">
+          <div class="project-body">
+            <div class="project-header">
+              <h2 class="project-title">Assistive Robotics Wheelchair</h2>
+              <span class="project-year">2023</span>
+            </div>
+            <p class="project-desc">
+              Developed software at the Laboratory for Active and Attentive
+              Vision (LAAV) at York University for a wheelchair-mounted 7-DOF
+              Kinova arm, integrating a ZED 2 stereo camera to generate
+              real-time RGB-D scene representations for user-guided object
+              selection and assistive pickup. Built a ROS-based pipeline to
+              transform camera-frame detections into task-space goals for the
+              arm, enabling autonomous reach-and-grasp execution. The system
+              combined an STM32-based embedded control interface for low-latency
+              manual input with an RQT-based touchscreen UI for high-level
+              interaction, with the goal of enabling users with limited mobility
+              to independently retrieve objects.
+            </p>
+            <div class="project-tags">
+              <span class="tag">ROS</span>
+              <span class="tag">ZED 2</span>
+              <span class="tag">Kinova</span>
+              <span class="tag">RQT</span>
+              <span class="tag">STM32</span>
+            </div>
+            <div class="project-links">
+              <a href="smart_wheelchair.html" class="read-more">Read more →</a>
+              <a
+                href="https://laav.info.yorku.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Lab →</a
+              >
+              <a
+                href="https://drive.google.com/drive/folders/1j8l4-2cKSOStdOVuKckXQaEEi_QWw4i7?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Demo Videos →</a
+              >
+            </div>
+          </div>
+          <a href="smart_wheelchair.html">
+            <div class="project-image-wrap" id="wheelchair-img">
+              <img
+                src="images/YORK/front.png"
+                alt="Assistive robotics wheelchair interface"
+                onerror="
+                  document.getElementById('img5').innerHTML =
+                    '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
+                "
+              />
+            </div>
+          </a>
+        </div>
+
+        <!-- Project 6: Lower Limb Exoskeleton -->
 <div class="project">
   <div class="project-body">
     <div class="project-header">
-      <h2 class="project-title">Assistive Robotics Wheelchair</h2>
+      <h2 class="project-title">T-BLUE Hip-Knee Exoskeleton</h2>
       <span class="project-year">2023</span>
     </div>
     <p class="project-desc">
-Developed software at the Laboratory for Active and Attentive Vision (LAAV) at York University for a wheelchair-mounted 7-DOF Kinova arm, integrating a ZED 2 stereo camera to generate real-time RGB-D scene representations for user-guided object selection and assistive pickup. Built a ROS-based pipeline to transform camera-frame detections into task-space goals for the arm, enabling autonomous reach-and-grasp execution. The system combined an STM32-based embedded control interface for low-latency manual input with an RQT-based touchscreen UI for high-level interaction, with the goal of enabling users with limited mobility to independently retrieve objects.
+      Preliminary development of a modular, bilateral robotic hip-knee
+      exoskeleton with open-source 3D-printed quasi-direct drive actuators.
+      Designed for energy-efficient, compliant locomotor assistance and
+      rehabilitation in persons with mobility impairments.
     </p>
     <div class="project-tags">
-      <span class="tag">ROS</span>
-      <span class="tag">ZED 2</span>
-      <span class="tag">Kinova</span>
-      <span class="tag">RQT</span>
-      <span class="tag">STM32</span>
+      <span class="tag">Wearable Robotics</span>
+      <span class="tag">Quasi-Direct Drive</span>
+      <span class="tag">3D Printing</span>
+      <span class="tag">CAN Bus</span>
+      <span class="tag">SolidWorks</span>
     </div>
     <div class="project-links">
-      <a href="smart_wheelchair.html" class="read-more">Read more →</a>
-      <a href="https://laav.info.yorku.ca" target="_blank" rel="noopener noreferrer">Lab →</a>
-      <a href="https://drive.google.com/drive/folders/1j8l4-2cKSOStdOVuKckXQaEEi_QWw4i7?usp=sharing" target="_blank" rel="noopener noreferrer">Demo Videos →</a>
-
+      <a href="./lower-limb-exo.html" class="read-more">Read more →</a>
+      <a href="https://doi.org/10.1101/2023.05.18.541377" target="_blank" rel="noopener noreferrer">Paper (bioRxiv) →</a>
     </div>
   </div>
-  <div class="project-image-wrap" id="wheelchair-img">
+  <div class="project-image-wrap" id="EXO">
     <img
-      src="images/YORK/front.png"
-      alt="Assistive robotics wheelchair interface"
+      src="images/EXO/body.png"
+      alt="T-BLUE robotic hip-knee exoskeleton"
       onerror="
-        document.getElementById('img5').innerHTML =
+        document.getElementById('EXO').innerHTML =
           '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
       "
     />
   </div>
 </div>
-
-        <!-- Project 3: NHL Sentiment Analysis -->
-        <div class="project">
-          <div class="project-body">
-            <div class="project-header">
-              <h2 class="project-title">NHL Game Outcome Prediction</h2>
-              <span class="project-year">2023</span>
-            </div>
-            <p class="project-desc">
-              A sentiment analysis pipeline that predicts NHL game outcomes by
-              processing post-game tweets. Logistic Regression model built with
-              scikit-learn, achieving 91% accuracy through hyperparameter
-              tuning.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">scikit-learn</span>
-              <span class="tag">NLP</span>
-              <span class="tag">Pandas</span>
-            </div>
-            <div class="project-links">
-              <a href="project-nhl.html" class="read-more">Read more →</a>
-              <a href="https://github.com/trentrossos" target="_blank"
-                >GitHub →</a
-              >
-            </div>
-          </div>
-          <div class="project-image-wrap" id="img3">
-            <img
-              src="images/nhl.png"
-              alt="NHL Sentiment Analysis"
-              onerror="
-                document.getElementById('img3').innerHTML =
-                  '<div class=img-placeholder><svg width=28 height=28 fill=none stroke=currentColor stroke-width=1.5 viewBox=&quot;0 0 24 24&quot;><rect x=3 y=3 width=18 height=18 rx=2/><path d=&quot;m3 15 5-5 4 4 3-3 6 6&quot;/><circle cx=8.5 cy=8.5 r=1.5/></svg>Add screenshot</div>'
-              "
-            />
-          </div>
-        </div>
       </section>
 
       <hr />

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T-BLUE Exoskeleton — Trent Rossos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+       <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="project-page">
+    <div class="container">
+      <nav class="back"><a href="index.html">← Back to projects</a></nav>
+
+      <div class="hero">
+        <div class="project-meta">
+          <span class="project-year">2023</span>
+          <div class="project-tags">
+            <span class="tag">Wearable Robotics</span>
+
+            <span class="tag">3D Printing</span>
+            <span class="tag">Brushless DC</span>
+
+            <span class="tag">SolidWorks</span>
+          </div>
+        </div>
+        <h1 class="project-title">T-BLUE Exoskeleton <em>Backdrivable Actuators for Locomotor Assistance</em></h1>
+        <p class="project-summary">Preliminary development of a modular, bilateral robotic hip-knee exoskeleton with open-source 3D-printed quasi-direct drive actuators — designed to provide energy-efficient, compliant locomotor assistance and rehabilitation to persons with mobility impairments.</p>
+        <div class="external-links">
+          <a href="https://doi.org/10.1101/2023.05.18.541377" target="_blank" rel="noopener noreferrer">Paper (bioRxiv) →</a>
+          <!-- <a href="https://github.com/trentrossos" target="_blank" rel="noopener noreferrer">GitHub →</a> -->
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap">
+            <!-- Placeholder: replace with actual exoskeleton photo -->
+            <img src="images/EXO/body.png" alt="T-BLUE fully assembled robotic hip-knee exoskeleton" />
+          </div>
+          <div class="img-wrap">
+            <img src="images/EXO/knee.png" alt="T-BLUE fully assembled robotic hip-knee exoskeleton" />
+          </div>
+        </div>
+        <p class="img-caption">Left: Fully assembled T-BLUE exoskeleton Right: 3D-printed quasi-direct drive actuator.</p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Project Overview</p>
+        <h3>A modular exoskeleton built from open-source hardware</h3>
+        <p>T-BLUE is a bilateral robotic hip-knee exoskeleton developed at the University of Toronto to support the design and testing of novel controllers and rehabilitation protocols for activities of daily living. The system targets populations who could benefit from partial locomotor assistance — particularly older adults and persons with osteoarthritis — rather than the complete-paralysis use case that dominates commercial devices.</p>
+        <p>The design retrofits commercially available Breg T-Scope Premier postoperative orthoses with 3D-printed quasi-direct drive actuators originally open-sourced by the University of Michigan. This approach kept total hardware cost to roughly $5,100 CDN including machining, while achieving backdrivability, low output impedance, and energy-efficient compliant motion.</p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Actuator Design</p>
+        <h3>Quasi-direct drives for backdrivability and efficiency</h3>
+        <p>The actuators use a Wolfrom compound-planetary transmission with a 15:1 gear ratio and 30° pressure angle profile. High-torque density T-Motor R150 brushless DC motors paired with this low gearing yield low output impedance — allowing the joints to be backdriven by the user — and peak torques up to 38.2 Nm, comparable to lower-limb exoskeleton requirements.</p>
+        <p>External actuator housings were printed in ASA on a Fortus 450MC 3D-printer (±0.127 mm accuracy). Components near the motor — the sun gear and motor housing — used ULTEM 1010 resin for its higher thermal resistance, mitigating heat degradation risks. The R150 rotor magnet was press-fitted into the sun gear, which meshes with the inner planetary gear assembly.</p>
+
+        <div class="callout">
+          <p>The backdrivability of quasi-direct drives enables volitional control, letting the user actively move the joints — a key advantage for rehabilitation and user engagement over highly-geared rigid actuators.</p>
+        </div>
+
+        <div class="images" style="margin-top: 36px;">
+          <div class="image-grid full-width">
+            <figure class="image-figure">
+              <div class="img-wrap">
+                <img src="images/EXO/gearbox.png" alt="Inner planetary gear assembly with 3 planetary gears, dowel pins, and bearings" />
+              </div>
+              <p class="img-caption">Inner planetary gear assembly — 3 planetary gears, dowel pins, and bearings secured by upper and lower carrier halves.</p>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Electrical System</p>
+        <h3>CAN bus control via Mjbots Moteus</h3>
+        <p>Motor control used Mjbots Moteus r4.8 brushless motor controllers with magnetic absolute encoders and an Mjbots pi3hat, enabling a Raspberry Pi 3b+ to communicate with all motor controllers over CAN. The daisy-chainable CAN bus simplified wiring across four actuators. Two 5-cell 3300 mAh lithium polymer batteries in parallel powered the system, with power distribution handled by the Mjbots distribution board for real-time telemetry and safe per-controller delivery.</p>
+        <p>Motor configuration and debugging used the <code>moteus_gui</code> Python package, while runtime control used <code>moteus</code> and <code>moteus-pi3hat</code>. Future work will integrate two additional IMUs via I2C to improve state estimation for controller development.</p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Mechanical Integration</p>
+        <h3>Retrofitted orthoses and machined aluminum struts</h3>
+        <p>The mechanical design builds on the M-BLUE design from the University of Michigan, customized in SolidWorks for the larger actuator diameter. Outer support struts on the postoperative orthoses were removed and replaced with waterjet-cut 7075 aluminum struts — selected for high strength and fatigue resistance under repeated mechanical loading. The actuators mount laterally at the knee and hip joints.</p>
+        <p>Fitting challenges arose from the medial-facing metal bearings of the actuators not sitting flush with the 3D-printed housing, creating extra clearance against the struts. Custom 3D-printed shim parts resolved the gap, and orthosis straps were reattached to complete the wearable assembly.</p>
+
+        <div class="images" style="margin-top: 36px;">
+          <div class="image-grid full-width">
+            <figure class="image-figure">
+              <div class="img-wrap">
+                <img src="images/EXO/strut .png" alt="T-BLUE robotic hip-knee exoskeleton worn by a user" />
+              </div>
+              <p class="img-caption">T-BLUE worn — showing actuators lateral to the knee and hip joints with machined aluminum struts and postoperative orthosis padding.</p>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Challenges &amp; Lessons</p>
+        <h3>Precision, tolerances, and assembly discipline</h3>
+        <p>Reproducing open-source hardware at this precision level surfaced several practical challenges. Manually press-fitting bearings into the planetary gear assembly damaged the metal ball bearings, increasing rotational resistance and in some cases damaging gears — ultimately requiring outsourcing to a machine shop with a hydraulic press. Dowel pins had geometric tolerances of 0.004 to 0.012 mm against the 3D-printer's ±0.127 mm accuracy, making consistent press-fits extremely sensitive.</p>
+        <p>Screw hole threading was another recurring issue: ASA and ULTEM 1010 fibers deteriorate under repeated screw insertion, risking mechanical slippage during actuation. Metal inserts are a planned improvement for future iterations. The differences in actuation smoothness across the four built actuators made these tolerance effects physically observable.</p>
+
+        <div class="spec-grid">
+          <div class="spec-item">
+            <strong>Actuator specs</strong>
+            38.2 Nm peak torque · 8.8 Nm continuous · 15:1 Wolfrom transmission · &lt;$200 USD each
+          </div>
+          <div class="spec-item">
+            <strong>Materials</strong>
+            ASA (external housings) · ULTEM 1010 resin (motor-facing parts) · 7075 aluminum struts
+          </div>
+          <div class="spec-item">
+            <strong>Electrical</strong>
+            Mjbots Moteus r4.8 · CAN bus · Raspberry Pi 3b+ · 2× 5-cell 3300 mAh LiPo in parallel
+          </div>
+          <div class="spec-item">
+            <strong>Total system cost</strong>
+            ~$5,100 CDN including machining service charges
+          </div>
+        </div>
+
+        <p>A key takeaway mirrored what the drone capstone taught: open-source hardware reproduction is largely a precision and process discipline problem. The designs work — similar actuators logged 420,000+ simulated gait strides with minimal performance degradation — but achieving that consistency requires tooling, iteration, and careful attention to assembly order.</p>
+      </div>
+
+      <footer>
+        <span>Trent Rossos — Robotics Engineering, University of Toronto</span>
+        <a href="index.html">← All projects</a>
+      </footer>
+    </div>
+  </body>
+</html>
