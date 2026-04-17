@@ -1,0 +1,657 @@
+/* ─────────────────────────────────────────────────────────────
+   SHARED STYLESHEET
+   All pages use this file for consistent styling
+   ───────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f5f2eb;
+  --ink: #1a1a18;
+  --muted: #888880;
+  --muted-dark: #7d7a72;
+  --accent: #c84b2f;
+  --border: #dedad2;
+  --surface: #f8f5ef;
+  --surface-2: #ede8dd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   HOME PAGE (index.html) – Noto Serif
+   ───────────────────────────────────────────────────────────── */
+
+.home-page {
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+}
+
+.home-page header {
+  padding: 80px 0 60px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.home-page .tagline {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.home-page .name {
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.home-page .name em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.home-page .bio {
+  font-size: 14px;
+  max-width: 700px;
+  margin-bottom: 32px;
+  line-height: 1.9;
+}
+
+.home-page .links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.home-page .links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+
+.home-page .links a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.home-page section {
+  padding: 60px 0;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.home-page section:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.home-page section:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.home-page section:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.home-page .section-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+
+/* Project Card Styles */
+.home-page .project {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 32px;
+  align-items: start;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-page .project:first-of-type {
+  border-top: 1px solid var(--border);
+}
+
+.home-page .project-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.home-page .project-title {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.home-page .project-year {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.home-page .project-desc {
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.home-page .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.home-page .tag {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.home-page .project-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.home-page .project-links a {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.home-page .project-links a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.home-page .project-links a.read-more {
+  color: var(--ink);
+  border-bottom-color: var(--border);
+}
+
+.home-page .project-links a.read-more:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Image column */
+.home-page .project-image-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: #edeae2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page .project-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.home-page .project-image-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.home-page .img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-page .img-placeholder svg {
+  opacity: 0.35;
+}
+
+/* Skills Grid */
+.home-page .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  border: 1px solid var(--border);
+}
+
+.home-page .skill-group {
+  padding: 20px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.home-page .skill-group:nth-child(even) {
+  border-right: none;
+}
+
+.home-page .skill-group-name {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.home-page .skill-group ul {
+  list-style: none;
+}
+
+.home-page .skill-group li {
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+.home-page footer {
+  padding: 40px 0 60px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+
+.home-page footer span,
+.home-page footer a {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.home-page footer a:hover {
+  color: var(--accent);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PROJECT PAGES – DM Mono
+   ───────────────────────────────────────────────────────────── */
+
+.project-page {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.project-page .back {
+  padding: 32px 0 0;
+  animation: fadeUp 0.6s ease both;
+}
+
+.project-page .back a,
+.project-page .external-links a,
+.project-page footer a {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.project-page .back a,
+.project-page footer a {
+  color: var(--muted-dark);
+}
+
+.project-page .back a:hover,
+.project-page .external-links a:hover,
+.project-page footer a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.project-page .hero {
+  padding: 48px 0 40px;
+  animation: fadeUp 0.8s ease 0.05s both;
+}
+
+.project-page .project-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.project-page .project-year {
+  font-size: 12px;
+  color: var(--muted-dark);
+}
+
+.project-page .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-page .tag {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--muted-dark);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.project-page .project-title {
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.project-page .project-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.project-page .project-summary {
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 800px;
+  margin-bottom: 28px;
+}
+
+.project-page .external-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.project-page .external-links a {
+  color: var(--accent);
+}
+
+/* Images Section */
+.project-page .images {
+  padding: 32px 0;
+  animation: fadeUp 0.8s ease 0.1s both;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-page .image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.project-page .image-grid.full-width {
+  grid-template-columns: 1fr;
+}
+
+.project-page .img-wrap {
+  background: var(--bg);
+  overflow: hidden;
+  display: flex;           /* NEW: Flexbox for centering */
+  align-items: center;     /* NEW: Vertical center */
+  justify-content: center; /* NEW: Horizontal center */
+}
+
+.project-page .img-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  max-width: 100%;         /* NEW: Prevents overflow */
+  transition: transform 0.35s ease;
+}
+
+.project-page .img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.project-page .image-figure {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.project-page .image-grid.full-width .image-figure {
+  max-width: 720px;
+}
+
+.project-page .img-caption {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted-dark);
+  letter-spacing: 0.03em;
+}
+
+
+/* Content Sections */
+.project-page .content-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.8s ease both;
+}
+
+.project-page .content-section:nth-of-type(1) {
+  animation-delay: 0.15s;
+}
+
+.project-page .content-section:nth-of-type(2) {
+  animation-delay: 0.22s;
+}
+
+.project-page .content-section:nth-of-type(3) {
+  animation-delay: 0.29s;
+}
+
+.project-page .content-section:nth-of-type(4) {
+  animation-delay: 0.36s;
+}
+
+.project-page .section-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-dark);
+  margin-bottom: 24px;
+}
+
+.project-page .content-section h3 {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+  margin-top: 8px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.project-page .content-section p {
+  line-height: 1.9;
+  margin-bottom: 16px;
+  max-width: 850px;
+}
+
+.project-page .content-section p:last-child {
+  margin-bottom: 0;
+}
+
+.project-page code {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  background: #ebe8df;
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: var(--accent);
+}
+
+.project-page .callout {
+  border-left: 2px solid var(--accent);
+  padding: 14px 20px;
+  margin: 20px 0;
+  background: #f0ece3;
+}
+
+.project-page .callout p {
+  font-size: 13px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.project-page ul.timeline-list,
+.project-page ul.bullets {
+  margin-left: 18px;
+}
+
+.project-page ul.timeline-list li,
+.project-page ul.bullets li {
+  margin-bottom: 8px;
+}
+
+.project-page .timeline-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.project-page .timeline-item {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.project-page .timeline-item strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.project-page footer {
+  padding: 40px 0 60px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-page footer span,
+.project-page footer a {
+  font-size: 12px;
+  color: var(--muted-dark);
+  text-decoration: none;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 580px) {
+  .home-page .project {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .project-image-wrap {
+    order: -1;
+    aspect-ratio: 16/9;
+  }
+
+  .home-page .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-page .skill-group:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+
+  .home-page .skill-group:nth-child(even) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-page .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+}

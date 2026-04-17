@@ -9,309 +9,9 @@
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      :root {
-        --bg: #f5f2eb;
-        --ink: #1a1a18;
-        --muted: #888880;
-        --accent: #c84b2f;
-        --border: #dedad2;
-      }
-
-      body {
-        background: var(--bg);
-        color: var(--ink);
-        font-family: "Noto Serif", serif;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 1.7;
-      }
-
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 32px;
-      }
-
-      .back {
-        padding: 32px 0 0;
-        opacity: 0;
-        animation: fadeUp 0.6s ease forwards;
-      }
-
-      .back a {
-        font-size: 12px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--muted);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        padding-bottom: 1px;
-        transition:
-          color 0.2s,
-          border-color 0.2s;
-      }
-
-      .back a:hover {
-        color: var(--accent);
-        border-bottom-color: var(--accent);
-      }
-
-      .hero {
-        padding: 48px 0 40px;
-        opacity: 0;
-        animation: fadeUp 0.8s ease 0.05s forwards;
-      }
-
-      .project-meta {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 20px;
-        flex-wrap: wrap;
-      }
-
-      .project-year {
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .tag {
-        font-size: 11px;
-        letter-spacing: 0.05em;
-        color: var(--muted);
-        border: 1px solid var(--border);
-        padding: 2px 8px;
-        border-radius: 2px;
-      }
-
-      .project-title {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(2rem, 5vw, 3rem);
-        font-weight: 400;
-        line-height: 1.1;
-        letter-spacing: -0.01em;
-        margin-bottom: 20px;
-      }
-
-      .project-title em {
-        font-style: italic;
-        color: var(--accent);
-      }
-
-      .project-summary {
-        font-size: 15px;
-        line-height: 1.9;
-        margin-bottom: 28px;
-      }
-
-      .external-links {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-
-      .external-links a {
-        font-size: 12px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--accent);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        padding-bottom: 1px;
-        transition: border-color 0.2s;
-      }
-
-      .external-links a:hover {
-        border-bottom-color: var(--accent);
-      }
-
-      hr {
-        border: none;
-        border-top: 1px solid var(--border);
-        margin: 0;
-      }
-
-      .images {
-        padding: 48px 0;
-        opacity: 0;
-        animation: fadeUp 0.8s ease 0.1s forwards;
-      }
-
-      .image-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-      }
-
-      .image-grid.full-width {
-        grid-template-columns: 1fr;
-      }
-
-      .img-wrap {
-        border: 1px solid var(--border);
-        overflow: hidden;
-        background: #edeae2;
-        aspect-ratio: 16/10;
-      }
-
-      .img-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.35s ease;
-      }
-
-      .img-wrap:hover img {
-        transform: scale(1.03);
-      }
-
-      .img-caption {
-        font-size: 11px;
-        color: var(--muted);
-        text-align: center;
-        margin-top: 10px;
-        letter-spacing: 0.03em;
-      }
-
-      .content-section {
-        padding: 48px 0;
-        border-top: 1px solid var(--border);
-        opacity: 0;
-        animation: fadeUp 0.8s ease forwards;
-      }
-
-      .content-section:nth-of-type(1) {
-        animation-delay: 0.15s;
-      }
-      .content-section:nth-of-type(2) {
-        animation-delay: 0.22s;
-      }
-
-      .section-label {
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 24px;
-      }
-
-      .content-section h3 {
-        font-family: "Instrument Serif", serif;
-        font-size: 1.8rem;
-        font-weight: 400;
-        margin-bottom: 24px;
-        margin-top: 8px;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        color: var(--ink);
-      }
-
-      .content-section p {
-        line-height: 1.9;
-        margin-bottom: 16px;
-      }
-
-      .content-section p:last-child {
-        margin-bottom: 0;
-      }
-
-      code {
-        font-family: "Noto Serif", serif;
-        font-size: 12px;
-        background: #ebe8df;
-        padding: 1px 5px;
-        border-radius: 2px;
-        color: var(--accent);
-      }
-
-      pre {
-        background: #1a1a18;
-        color: #e8e4da;
-        padding: 20px;
-        overflow-x: auto;
-        margin: 20px 0;
-        font-size: 12px;
-        line-height: 1.7;
-        border-radius: 2px;
-      }
-
-      pre code {
-        background: none;
-        color: inherit;
-        padding: 0;
-        font-size: inherit;
-      }
-
-      .callout {
-        border-left: 2px solid var(--accent);
-        padding: 14px 20px;
-        margin: 20px 0;
-        background: #f0ece3;
-      }
-
-      .callout p {
-        font-size: 13px;
-        color: var(--ink);
-        margin: 0;
-      }
-
-      footer {
-        padding: 40px 0 60px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      footer span,
-      footer a {
-        font-size: 12px;
-        color: var(--muted);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-
-      footer a:hover {
-        color: var(--accent);
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(14px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 500px) {
-        .image-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="project-page">
     <div class="container">
       <nav class="back">
         <a href="index.html">← Back to projects</a>
@@ -331,99 +31,305 @@
           </div>
         </div>
 
-        <h1 class="project-title">Crazyflie Nano UAV <em>Onboard SLAM</em></h1>
+        <h1 class="project-title">
+          Autonomous Rover <em>Localization, Navigation, and Block Delivery</em>
+        </h1>
 
         <p class="project-summary">
-          This project was a semester‑long design and build of an autonomous
-          rover capable of navigating a walled maze, localizing from an
-          arbitrary start pose, and retrieving and delivering a block to a
-          designated drop‑off zone within a five‑minute time limit.
+          This project was a semester-long design and build of an autonomous
+          rover for a maze challenge with three staged milestones: obstacle
+          avoidance in a known maze, localization and navigation from an
+          arbitrary starting pose, and pickup plus delivery of a block to a
+          designated drop-off zone within a five-minute run window. The final
+          platform combined a compact kiwi-drive chassis, top-mounted 2D LiDAR,
+          dual-microcontroller embedded architecture, and a retractable gripper,
+          with the full system iterated through repeated electrical, mechanical,
+          and software redesigns as the milestones increased in complexity.
         </p>
-        The rover used a compact Kiwi drivetrain for holonomic motion, a
-        top‑mounted 2D LiDAR for 360° environmental scans, and a retractable
-        gripper arm that kept the footprint small enough for tight maze
-        navigation  The software stack was built from the ground up in
-        C++ on an STM32F4 microcontroller, with a custom RTOS scheduler to
-        manage concurrent tasks. The SLAM implementation was a particle filter
-        with a sparse pose graph for loop closure, optimized for the limited
-        compute resources. The system was tested and refined through multiple
-        iterations in a hardware‑in‑the‑loop simulator before final deployment
-        on the physical rover.
 
         <div class="external-links">
-          <a href="https://github.com/trentrossos" target="_blank">GitHub →</a>
+          <a
+            href="MIE444_Team9_Report.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Final Report →</a
+          >
+          <a
+            href="https://drive.google.com/drive/u/1/folders/1OVslTlTTsUv2eT89P3rCFGQTwaga36KD"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Demo Videos →</a
+          >
+          <a
+            href="https://github.com/JustinNarayan/mie444_sourcecode"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Code Repository →</a
+          >
         </div>
       </div>
 
       <hr />
 
-      <!-- IMAGES -->
       <div class="images">
         <div class="image-grid">
           <div class="img-wrap">
-            <img src="images/crazyflie-1.png" alt="Crazyflie hardware setup" />
+            <img
+              src="images/MIE444/rover_real.png"
+              alt="Autonomous rover"
+              onerror="
+                this.parentElement.innerHTML =
+                  '<div class=img-placeholder>Add rover hardware image</div>'
+              "
+            />
           </div>
           <div class="img-wrap">
-            <img src="images/crazyflie-2.png" alt="Occupancy map output" />
+            <img
+              src="images/MIE444/side.png"
+              alt="LiDAR visualization and localization output"
+              onerror="
+                this.parentElement.innerHTML =
+                  '<div class=img-placeholder>Add LiDAR or localization screenshot</div>'
+              "
+            />
           </div>
         </div>
         <p class="img-caption">
-          Left: hardware setup · Right: real-time occupancy map output
+          Left: Fully assembled rover · Right: CAD model showing side of rover
+          with LiDAR and gripper
         </p>
       </div>
 
-      <!-- ARCHITECTURE -->
       <div class="content-section">
         <p class="section-label">Technical Architecture</p>
 
-        <h3>System overview</h3>
+        <h3>Compact holonomic platform for a constrained maze</h3>
         <p>
-  <strong>Drivetrain:</strong> Three‑wheel Kiwi drive for omnidirectional motion and a small turning radius,
-    simplifying navigation around 1’×1’ maze cells and tight corners 
-
-    <strong>Sensing:</strong> A 2D LiDAR provided dense 360° scans for localization and manual obstacle
-    avoidance; ground‑level ultrasonic sensors were installed but not fully integrated by the
-    final milestone 
-
-    <strong>Compute:</strong> An Arduino Uno handled low‑level drivetrain control, while an Arduino Mega
-    handled Bluetooth teleoperation and sensor I/O, separating timing‑critical motion control
-    from higher‑level communication and perception 
-
-    <strong>Manipulator:</strong> A retractable arm with a simple parallel gripper lifted the block with about
-    2&nbsp;mm of clearance and had minimal impact on stability and chassis size 
+          The rover was designed around a three-wheel kiwi drivetrain to allow
+          holonomic motion while keeping the footprint small enough for tight 1
+          ft × 1 ft maze cells. That geometry simplified point turns, lateral
+          corrections, and fine alignment in constrained corridors, while the
+          vertically stacked chassis kept the LiDAR high for unobstructed 360°
+          scans and preserved room for wiring, controllers, and the manipulator.
+          A retractable arm and parallel gripper were integrated into the lower
+          structure so the robot could transport a block without significantly
+          increasing its turning radius or destabilizing the chassis.
         </p>
 
-    
+        <h3>Split embedded architecture</h3>
+        <p>
+          The control system was intentionally divided across two
+          microcontrollers. An Arduino Uno handled low-level drivetrain and
+          encoder-related work, while an Arduino Mega managed Bluetooth
+          communication, LiDAR integration, and higher-level subsystem
+          coordination. This separation reduced timing conflicts between motion
+          control and communications, and it became especially useful once the
+          robot had to support encoders, LiDAR, servos, and multiple message
+          pathways at the same time.
+        </p>
 
-      <!-- CHALLENGES -->
+        <h3>Localization and perception stack</h3>
+        <p>
+          For localization, the rover used a Monte Carlo particle filter driven
+          by wheel-encoder motion updates and full 360° LiDAR scans. The
+          particle set was refined by comparing real sensor readings against
+          reference scans from the known maze, and the software evolved from
+          using absolute range comparisons to normalized LiDAR similarity
+          measures after early mismatches prevented convergence. The final
+          operator workflow paired this localization estimate with a custom
+          LiDAR visualization, making non-line-of-sight navigation practical
+          even when full autonomy was not completed.
+        </p>
+      </div>
+	  <div class="images" style="margin-top: 36px">
+        <div class="image-grid full-width">
+          <figure class="image-figure">
+            <div class="img-wrap">
+              <img
+                src="images/MIE444/lidar.png"
+                alt="View of Monte Carlo particle filter output and LiDAR visualization"
+              />
+            </div>
+            <figcaption class="img-caption">
+              View of Monte Carlo particle filter output and LiDAR visualization
+            </figcaption>
+          </figure>
+        </div>
+		</div>
       <div class="content-section">
-        <p class="section-label">What I Learned</p>
+        <p class="section-label">Milestones</p>
 
-        <h3>Key Lessons</h3>
-<ul>
-  <li>
-    Plan power distribution and grounding early; fragile power architecture can mask other
-    issues and constrain integration and testing time.
-  </li>
-  <li>
-    Design and tuning of holonomic drive kinematics and PID control on resource‑limited
-    microcontrollers.
-  </li>
-  <li>
-    The value of modular architecture and clear interfaces between drivetrain, sensing, UI,
-    and manipulation in multi‑subsystem mechatronics projects.
-  </li>
-</ul>
+        <h3>Milestone 1: obstacle avoidance under manual control</h3>
+        <p>
+          In the first milestone, the rover was driven by Bluetooth under direct
+          human line-of-sight with the goal of navigating a known maze quickly
+          and cleanly. The drivetrain firmware was built in C using PlatformIO,
+          with a lightweight communications protocol forwarding commands through
+          the Mega and into the Uno-based motor control layer. The rover
+          performed strongly here: the compact kiwi drive made the robot nimble
+          in corners, the manual controls were responsive, and an automatic halt
+          feature stopped the motors if no new command was received within 100
+          ms.
+        </p>
 
-<h2>Links</h2>
-<ul>
-  <li><a href="MIE444_Team9_Report.pdf" target="_blank">Final report (PDF)</a> [file:18]</li>
-  <!-- Replace # with real URLs when ready -->
-  <li><a href="https://drive.google.com/drive/u/1/folders/1OVslTlTTsUv2eT89P3rCFGQTwaga36KD" target="_blank">Demo videos (Google Drive)</a></li>
-  <li><a href="https://github.com/JustinNarayan/mie444_sourcecode" target="_blank">Code repository (GitHub)</a></li>
-</ul>
+        <h3>Milestone 2: localization and non-line-of-sight navigation</h3>
+        <p>
+          The second milestone added LiDAR and encoders so the rover could
+          estimate its pose from an arbitrary start state and navigate without
+          direct visual contact. This required a much more sophisticated
+          communication interface, controller hierarchy, and task scheduling
+          structure across the two Arduinos. While the firmware and sensing
+          pipeline were largely in place, the first localization approach
+          struggled because the provided reference LiDAR data did not align
+          cleanly with measured distances, and intermittent Bluetooth and LiDAR
+          brownouts repeatedly disrupted runs before the localization pipeline
+          could be demonstrated reliably.
+        </p>
 
+        <h3>Milestone 3: pickup and delivery integration</h3>
+        <p>
+          The final milestone combined localization, navigation, and
+          manipulation. The team redesigned the localization update to compare
+          normalized rather than absolute LiDAR readings, which made the
+          particle filter converge much more reliably across the maze. A
+          two-servo gripper assembly then enabled pickup, lift, and drop-off of
+          the block, although full autonomous block detection was not completed
+          because ground-level sensing and power stability issues remained too
+          fragile to trust during the final integration push.
+        </p>
 
+        <div class="callout">
+          <p>
+            The most important systems lesson from the project was that
+            successful integration depended less on any one algorithm than on
+            whether the electrical, communications, and mechanical subsystems
+            were stable enough to support repeatable testing.
+          </p>
+        </div>
+      </div>
+      <div class="images" style="margin-top: 36px">
+        <div class="image-grid full-width">
+          <figure class="image-figure">
+            <div class="img-wrap">
+              <img
+                src="images/MIE444/front_offset.png"
+                alt="Front view of the autonomous rover"
+              />
+            </div>
+            <figcaption class="img-caption">
+              Front view of the autonomous rover CAD model.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="content-section">
+        <p class="section-label">Implementation Details</p>
+
+        <h3>Modular firmware and message passing</h3>
+        <p>
+          One of the strongest parts of the rover was its modular programming
+          architecture. Each microcontroller ran a Taskmaster loop that polled
+          communications, dispatched incoming messages to the correct
+          controller, executed local control logic, and returned outgoing
+          responses. That structure made it straightforward to add new
+          controllers for the LiDAR, encoders, drivetrain, gripper, and
+          ultrasonic sensors without rewriting the full codebase each time, and
+          it also made subsystem-level debugging much easier when behavior
+          failed during integration.
+        </p>
+
+        <h3>Kiwi-drive kinematics and control</h3>
+        <p>
+          The drivetrain used explicit forward and inverse kinematics for the
+          three-wheel kiwi geometry, allowing both manual and partially
+          automated motion commands to be translated into wheel-level targets. A
+          PID-based control interface was later developed for commands of the
+          form \(dx, dy, d heta\), but hardware variability made it extremely
+          difficult to tune. In practice, inconsistent motor deadbands, wheel
+          slip, and battery-dependent behavior often made the mathematically
+          correct controller behave unpredictably in the maze, especially in
+          narrow corridors where small tracking errors quickly became
+          collisions.
+        </p>
+
+        <h3>Manipulator design</h3>
+        <p>
+          The gripper was one of the most successful mechanical subsystems. The
+          wrist used a synchronized linkage driven by a micro-servo to close
+          symmetrically on the block, while the arm lifted the wrist using a
+          parallel linkage that kept the gripper approximately level during
+          transport. Padding was added at the gripper interface to increase
+          friction and reduce dropped blocks, and despite some limitations in
+          arm travel caused by nearby encoders and wiring, the manipulator
+          reliably grasped, lifted, and delivered the object during testing.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Challenges & What I Learned</p>
+
+        <h3>Power management dominated integration risk</h3>
+        <p>
+          The most persistent weakness in the rover was power distribution. As
+          more components were added across milestones — motors, LiDAR,
+          Bluetooth, encoders, and servos — the system became vulnerable to
+          intermittent brownouts and communication failures that could mask
+          unrelated issues elsewhere in the stack. The team iterated through
+          multiple regulator and battery arrangements to isolate critical
+          components, eventually stabilizing the platform enough for a
+          successful integrated run, but electrical fragility remained the main
+          bottleneck throughout the project.
+        </p>
+
+        <h3>Simulation-grade logic does not guarantee hardware success</h3>
+        <p>
+          Several control and estimation modules were sound in principle, yet
+          real-world hardware variability repeatedly limited their usefulness.
+          Differences between motors, encoder drift, wheel slip, changing
+          battery conditions, and the tight physical packaging of the robot all
+          made tuning much harder than the equations alone suggested. This
+          project reinforced how quickly embedded autonomy becomes a
+          systems-engineering problem rather than a purely algorithmic one.
+        </p>
+
+        <h3>Best-performing design choices</h3>
+        <p>
+          Three design decisions stood out as especially strong. First, the
+          small kiwi-drive chassis gave the rover enough maneuverability to work
+          in a tightly constrained maze. Second, the modular firmware
+          architecture made it possible to add functionality without losing
+          control of the codebase. Third, the gripper was well-scoped
+          mechanically and integrated more cleanly than many of the other
+          subsystems, making it the most reliable part of the final rover
+          behavior.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Results</p>
+
+        <h3>What the rover achieved</h3>
+        <p>
+          By the end of the course, the rover was able to demonstrate all core
+          functions required by the project: manual obstacle avoidance,
+          LiDAR-assisted localization, navigation to a target region, and block
+          pickup plus delivery to the drop-off zone. The final integrated run
+          still depended on a practical, human-in-the-loop control strategy
+          rather than the fully autonomous state-driven behavior originally
+          envisioned, but the robot successfully completed the mission with
+          minimal intervention and no required power cycle during the successful
+          final attempt.
+        </p>
+        <p>
+          In hindsight, the biggest improvement opportunity would have been
+          earlier resolution of power distribution and hardware consistency
+          issues. With a more reliable electrical foundation, much more of the
+          work on automated state management, sensor fusion, and block detection
+          could have been deployed instead of remaining partially implemented.
+          Even so, the project was a strong exercise in embedded robotics
+          integration and in balancing mechanical, electrical, and software
+          tradeoffs under real deadline pressure.
+        </p>
       </div>
 
       <footer>

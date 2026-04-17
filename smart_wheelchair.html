@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assistive Robotics Interface — Trent Rossos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="project-page">
+    <div class="container">
+      <nav class="back">
+        <a href="index.html">← Back to projects</a>
+      </nav>
+
+      <div class="hero">
+        <div class="project-meta">
+          <span class="project-year">2023</span>
+          <div class="project-tags">
+            <span class="tag">ROS</span>
+            <span class="tag">ZED 2</span>
+            <span class="tag">Kinova</span>
+            <span class="tag">RQT</span>
+            <span class="tag">STM32</span>
+            <span class="tag">Assistive Robotics</span>
+          </div>
+        </div>
+
+        <h1 class="project-title">Assistive Robotics <em>Wheelchair Interface</em></h1>
+
+        <p class="project-summary">
+          This project addressed a core accessibility challenge: individuals using wheelchairs often lack the ability to independently reach and retrieve objects in their environment. To address this, I worked on an assistive robotic system consisting of a wheelchair-mounted 7-DOF Kinova arm, a ZED 2 stereo camera for perception, and a multi-layered user interface. The system was designed to translate user intent into autonomous manipulation by combining real-time RGB-D perception, intuitive object selection, and coordinated motion execution within a unified ROS-based architecture.
+        </p>
+
+        <div class="external-links">
+          <a href="https://laav.info.yorku.ca" target="_blank" rel="noopener noreferrer">Lab Website →</a>
+		  <a href="https://drive.google.com/drive/folders/1j8l4-2cKSOStdOVuKckXQaEEi_QWw4i7?usp=sharing" target="_blank" rel="noopener noreferrer">Project Documentation →</a>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap">
+            <img src="images/YORK/front.png" alt="Front view of the assistive robotic system" 
+			style="width: 80%; max-width: 400px; display: block; margin: 0 auto;"/>
+          </div>
+          <div class="img-wrap">
+            <img src="images/YORK/back.png" alt="Back view of the assistive robotic system" 
+			style="width: 80%; display: block; margin: 0 auto;"/>
+          </div>
+        </div>
+        <p class="img-caption">
+          Left: Front view of the wheelchair-mounted robotic system · Right: Back view showing the wheelchair
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">System Design</p>
+
+        <h3>Perception, Interface, and System Integration</h3>
+        <p>
+          I implemented perception-driven interaction workflows for an assistive robotic platform integrating stereo vision, embedded control, and robotic manipulation. The system was built around a ZED 2 stereo camera and a 7-DOF Kinova arm, with software designed to bridge raw sensor data, user input, and autonomous execution. My work focused on processing RGB-D data to construct a usable scene representation, designing interfaces for user-guided object selection, and integrating these perception outputs into a ROS-based manipulation pipeline. This required coordinating multiple subsystems—vision, user interface, and control—under real-time constraints while ensuring robustness for physical interaction tasks where perception noise and latency directly impact execution.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">System Design</p>
+
+        <h3>Perception and Object Selection</h3>
+        <p>
+          I developed perception modules around the ZED 2 stereo camera to generate depth-aware representations of the environment suitable for interaction. This involved working with synchronized RGB and depth streams to produce spatially meaningful outputs that could be consumed both by the user interface and downstream manipulation components. These representations were exposed through a visualization layer that allowed users to directly interact with the scene and select target objects. Once selected, targets were translated into actionable inputs for the manipulation stack, including position estimates in the robot’s frame and task-level commands that could be executed by the Kinova arm. Care was taken to ensure that the perception outputs were stable and interpretable, as inconsistencies at this stage would propagate directly into manipulation errors.
+        </p>
+
+        <h3>Dual Interface Architecture</h3>
+        <p>
+          The system used a dual-interface architecture to separate low-level control from high-level task execution, improving both usability and system safety. An embedded STM32-based interface provided direct access to arm control and system state, enabling deterministic, low-latency interaction for manual operation and debugging. In parallel, a tablet-based interface exposed higher-level functionality, allowing users to interact with the perceived environment and issue task-level commands such as object selection and retrieval. This separation allowed the system to support both autonomous and manual workflows without overloading a single interface, while also providing a reliable fallback path in the event of perception or planning failures.
+        </p>
+
+        <h3>RQT-Based Operator Interface</h3>
+        <p>
+          I developed a custom operator interface using RQT that interfaced directly with ROS topics and services, allowing tight integration with the rest of the system. The interface was responsible for visualizing perception outputs, handling user input for object selection, and providing feedback on robot state and execution progress. By leveraging RQT, I was able to rapidly prototype and iterate on the interface while maintaining compatibility with the ROS ecosystem. The design avoided unnecessary abstraction layers, enabling direct communication with the underlying nodes and minimizing latency between user input and system response, which was critical for maintaining a responsive interaction loop.
+        </p>
+      </div>
+	  <div class="images">
+        <div class="image-grid">
+          <div class="img-wrap">
+            <img src="images/YORK/rqt.png" alt="RQT interface for object selection and manipulation" />
+          </div>
+          <div class="img-wrap">
+            <img src="images/YORK/micro_small.jpg" alt="View of the microcontroller interface" 
+			style="width: 80%; max-width: 260px; display: block; margin: 0 auto;"
+			/>
+          </div>
+        </div>
+        <p class="img-caption">
+          Left: RQT interface for object selection and manipulation · Right: View of the microcontroller interface
+        </p>
+      </div>
+      <div class="content-section">
+        <p class="section-label">Technical Stack</p>
+
+        <h3>ROS-Based System Integration</h3>
+        <p>
+          The overall system was structured using ROS to modularize perception, interface, and control components into independent but coordinated nodes. I designed the communication architecture using a combination of topics and services to handle continuous data streams and discrete command execution. Perception data from the ZED 2 was streamed to both the visualization interface and processing nodes, while user-selected targets were transmitted as task-level commands to the manipulation subsystem. This architecture enabled asynchronous operation across components while preserving synchronization where required for execution, allowing the system to remain responsive even as multiple subsystems operated concurrently.
+        </p>
+
+        <h3>Manipulation Pipeline</h3>
+        <p>
+          The end-to-end manipulation pipeline was structured to abstract low-level robotic control into a user-friendly, task-driven workflow. The system first captured RGB-D data from the ZED 2 and generated a scene representation suitable for interaction. The user then selected a target object through the interface, which was converted into a task-space goal for the robotic arm. This goal was passed to the Kinova arm’s control stack, which executed a reach-and-grasp motion to retrieve the object. By structuring the pipeline in this way, the system eliminated the need for users to manually control individual joints, instead allowing them to operate at the level of intent. This significantly improved usability while still relying on precise coordination between perception, planning, and control to ensure successful execution.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="section-label">Impact</p>
+
+        <h3>Why it mattered</h3>
+        <p>
+          This system demonstrated how perception-driven interfaces can reduce the complexity of robotic manipulation for assistive applications. A key takeaway was that system performance is not solely determined by perception or control accuracy—effective interface design is critical for translating user intent into reliable robotic action in real-world environments.
+        </p>
+      </div>
+        </p>
+			        <footer>
+        <span>Trent Rossos — Robotics Engineering, University of Toronto</span>
+        <a href="index.html">← All projects</a>
+      </footer>
+      </div>
+
+    </div>
+  </body>
+</html>

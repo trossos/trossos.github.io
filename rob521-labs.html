@@ -6,241 +6,10 @@
     <title>Mobile Robotics Labs — Trent Rossos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      :root {
-        --bg: #f5f2eb;
-        --ink: #1a1a18;
-        --muted: #888880;
-        --accent: #c84b2f;
-        --border: #dedad2;
-        --placeholder: #ece7de;
-      }
-      body {
-        background: var(--bg);
-        color: var(--ink);
-        font-family: "Noto Serif", serif;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 1.7;
-      }
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 32px;
-      }
-      .back {
-        padding: 32px 0 0;
-        opacity: 0;
-        animation: fadeUp 0.6s ease forwards;
-      }
-      .back a {
-        font-size: 12px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--muted);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        padding-bottom: 1px;
-        transition: color 0.2s, border-color 0.2s;
-      }
-      .back a:hover {
-        color: var(--accent);
-        border-bottom-color: var(--accent);
-      }
-      .hero {
-        padding: 48px 0 40px;
-        opacity: 0;
-        animation: fadeUp 0.8s ease 0.05s forwards;
-      }
-      .project-meta {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 20px;
-        flex-wrap: wrap;
-      }
-      .project-year {
-        font-size: 12px;
-        color: var(--muted);
-      }
-      .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .tag {
-        font-size: 11px;
-        letter-spacing: 0.05em;
-        color: var(--muted);
-        border: 1px solid var(--border);
-        padding: 2px 8px;
-        border-radius: 2px;
-      }
-      .project-title {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(2rem, 5vw, 3rem);
-        font-weight: 400;
-        line-height: 1.1;
-        letter-spacing: -0.01em;
-        margin-bottom: 20px;
-      }
-      .project-title em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .project-summary {
-        font-size: 15px;
-        line-height: 1.9;
-        margin-bottom: 28px;
-      }
-      .external-links {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-      .external-links a {
-        font-size: 12px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--accent);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        padding-bottom: 1px;
-        transition: border-color 0.2s;
-      }
-      .external-links a:hover {
-        border-bottom-color: var(--accent);
-      }
-      hr {
-        border: none;
-        border-top: 1px solid var(--border);
-        margin: 0;
-      }
-      .images {
-        padding: 72px 0;
-        opacity: 0;
-        animation: fadeUp 0.8s ease 0.1s forwards;
-      }
-      .image-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-      }
-      .image-grid.full-width {
-        grid-template-columns: 1fr;
-      }
-      .img-wrap {
-        border: 1px solid var(--border);
-        overflow: hidden;
-        background: var(--placeholder);
-        aspect-ratio: 4/3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-      }
-      .img-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-      }
-      .img-wrap.placeholder {
-        color: var(--muted);
-        text-align: center;
-        font-size: 12px;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-      .img-caption {
-        font-size: 11px;
-        color: var(--muted);
-        text-align: center;
-        margin-top: 10px;
-        letter-spacing: 0.03em;
-      }
-      .content-section {
-        padding: 48px 0;
-        border-top: 1px solid var(--border);
-        opacity: 0;
-        animation: fadeUp 0.8s ease forwards;
-      }
-      .content-section:nth-of-type(1) { animation-delay: 0.15s; }
-      .content-section:nth-of-type(2) { animation-delay: 0.22s; }
-      .content-section:nth-of-type(3) { animation-delay: 0.29s; }
-      .content-section:nth-of-type(4) { animation-delay: 0.36s; }
-      .section-label {
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 24px;
-      }
-      .content-section h3 {
-        font-family: "Instrument Serif", serif;
-        font-size: 1.8rem;
-        font-weight: 400;
-        margin-bottom: 24px;
-        margin-top: 8px;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        color: var(--ink);
-      }
-      .content-section p {
-        line-height: 1.9;
-        margin-bottom: 16px;
-      }
-      .content-section p:last-child {
-        margin-bottom: 0;
-      }
-      code {
-        font-family: "Noto Serif", serif;
-        font-size: 12px;
-        background: #ebe8df;
-        padding: 1px 5px;
-        border-radius: 2px;
-        color: var(--accent);
-      }
-      .callout {
-        border-left: 2px solid var(--accent);
-        padding: 14px 20px;
-        margin: 20px 0;
-        background: #f0ece3;
-      }
-      .callout p {
-        font-size: 13px;
-        color: var(--ink);
-        margin: 0;
-      }
-      footer {
-        padding: 40px 0 60px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      footer span, footer a {
-        font-size: 12px;
-        color: var(--muted);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      footer a:hover {
-        color: var(--accent);
-      }
-      @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(14px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @media (max-width: 500px) {
-        .image-grid { grid-template-columns: 1fr; }
-      }
-    </style>
+ 
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="project-page">
     <div class="container">
       <nav class="back">
         <a href="index.html">← Back to projects</a>
@@ -260,7 +29,7 @@
         <h1 class="project-title">Mobile Robotics Labs <em>Planning, Mapping, and Localization</em></h1>
 
         <p class="project-summary">
-          As part of my Mobile Robotics and Perception course I completed three labs using the TurtleBot platform focused on motion planning, calibration, occupancy grid mapping, and localization. Across the labs, I moved from simulation-based path planning with RRT and RRT* to real-robot calibration and mapping, then to particle-filter localization and SLAM, with a strong emphasis on understanding how performance changes between ideal simulation and physical deployment.
+          As part of my Mobile Robotics and Perception course I completed three labs using the TurtleBot platform focused on motion planning, calibration, occupancy grid mapping, and localization and one lab that had me configure my development environment. Across the labs, I moved from simulation-based path planning with RRT and RRT* to real-robot calibration and mapping, then to particle-filter localization and SLAM, with a strong emphasis on understanding how performance changes between ideal simulation and physical deployment.
         </p>
 
         <div class="external-links">
@@ -272,13 +41,6 @@
 
       <hr />
 
-      <div class="images">
-        <div class="image-grid">
-          <div class="img-wrap placeholder">Lab 1 image placeholder<br />RRT / RRT* simulation result</div>
-          <div class="img-wrap placeholder">Lab 2 image placeholder<br />Calibration, odometry, or occupancy grid map</div>
-        </div>
-        <p class="img-caption">Replace these placeholders with screenshots from the reports or RViz outputs.</p>
-      </div>
 
       <div class="content-section">
         <p class="section-label">Lab 2</p>
@@ -374,10 +136,16 @@
 
       <div class="images">
         <div class="image-grid">
-          <div class="img-wrap placeholder">Lab 3 placeholder<br />Insert AMCL particle filter screenshot</div>
-          <div class="img-wrap placeholder">Lab 3 placeholder<br />Insert Gmapping result or Myhal environment map</div>
+          <div class="img-wrap">
+            <img src="images/ROB521/lab4/willow.png" alt="Willow Garage Environment Map" />
+		  </div>
+          <div class="img-wrap">
+            <img src="images/ROB521/lab4/real_world.png" alt="Real-World Environment Map" />
+          </div>
         </div>
-        <p class="img-caption">Suggested images: AMCL convergence, turtlebot3_world Gmapping map, willowgarage comparison, or real-environment Myhal scan.</p>
+        <p class="img-caption">
+          Left: Willow Garage Environment Map · Right: Real-World Environment Map
+        </p>
       </div>
 
       <div class="content-section">
