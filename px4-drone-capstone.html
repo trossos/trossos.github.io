@@ -25,10 +25,13 @@
           </div>
         </div>
         <h1 class="project-title">Capstone Drone <em>Tracking, Fall Detection, and Signal Transmission</em></h1>
-        <p class="project-summary">An autonomous drone system built on PX4, Jetson Nano, ROS2, and Mavros. The project delivered three core objectives, tracking, fall detection, and signal transmission. Validation was achieved through repeated rebuilds, offline simulation, careful tuning, and conservative flight limits.</p>
+<p class="project-summary">An autonomous drone system built on PX4, Jetson Nano, ROS2, and MAVROS, delivering three core capabilities: person tracking, fall detection, and alert transmission. Built as a capstone project, the course provided a comprehensive foundation in autonomous drone systems. Prior to developing the solution, three flight exercises were completed to verify the drone was airworthy and fully operational. My team's final solution addresses a real-world problem: a drone that detects falls by elderly individuals and dispatches automated alerts to caregivers.</p>
         <div class="external-links">
-          <a href="https://github.com/clairezhang2003/RoboCapstone/issues/3" target="_blank" rel="noopener noreferrer">Initialization notes →</a>
-          <a href="https://github.com/trentrossos" target="_blank" rel="noopener noreferrer">GitHub →</a>
+          <!-- <a href="https://github.com/clairezhang2003/RoboCapstone/issues/3" target="_blank" rel="noopener noreferrer">Initialization notes →</a> -->
+          <!-- <a href="https://github.com/trentrossos" target="_blank" rel="noopener noreferrer">GitHub →</a> -->
+		                 <a href="ROB498/ROB498_Final_Report.pdf" target="_blank"
+                >Final Report →</a
+              >
         </div>
       </div>
       <hr />
@@ -37,7 +40,7 @@
           <div class="img-wrap"><img src="images/ROB498/capstone_drone_crop.jpg" alt="Fully assembled PX4 drone capstone" /></div>
           <div class="img-wrap"><img src="images/ROB498/drone_hover.png" alt="Drone in hover state during testing" /></div>
         </div>
-        <p class="img-caption">Capstone drone hardware and drone in hover state.</p>
+        <p class="img-caption">Left: Capstone drone hardware Right: Drone in hover state.</p>
       </div>
       <div class="content-section">
         <p class="section-label">Project Overview</p>
@@ -80,7 +83,7 @@
       <div class="content-section">
         <p class="section-label">System Reliability</p>
         <h3>Rebuilds, retuning, and disciplined testing</h3>
-        <p>The timeline mattered as much as the final demo. FE1 exposed issues with the Jetson and SD card, then FE2 and FE3 progressed before the first crash forced a rebuild with new propellers and a new frame. A second crash led to a full rebuild with a new drone, new Jetson, new SD card, more QGroundControl retuning, and a change in internet switching before the final pass through FE1, FE2, FE3, camera testing, fall detection, and AprilTag tracking.</p>
+        <p>The timeline mattered as much as the final demo. Flight Exercise 1 (FE1) exposed issues with the Jetson and SD card, then FE2 and FE3 progressed before the first crash forced a rebuild with new propellers and a new frame. A second crash led to a full rebuild with a new drone, new Jetson, new SD card, more QGroundControl retuning, and a change in internet switching before the final pass through FE1, FE2, FE3, camera testing, fall detection, and AprilTag tracking.</p>
         <div class="timeline-grid">
           <div class="timeline-item"><strong>Development timeline</strong> FE1 issues → FE2 → FE3 → crash 1 → rebuild → FE2 → crash 2 → full rebuild → retuning → camera tests → fall detection → AprilTag tracking.</div>
           <div class="timeline-item"><strong>Design practices</strong> Offline validation first, then gradual tuning, conservative limits, and repeated flight exercises after each rebuild to make sure nothing regressed.</div>

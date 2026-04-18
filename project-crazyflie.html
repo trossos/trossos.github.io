@@ -34,7 +34,9 @@
         <h1 class="project-title">Crazyflie Nano UAV <em>Onboard Mapping and Exploration</em></h1>
 
         <p class="project-summary">
-          A fully onboard mapping and exploration pipeline for the Crazyflie 2.1 nano quadrotor, implementing autonomous Mapping and frontier-based exploration using only the GAP-8's 512 KB of RAM. Builds 2D occupancy grids in real-time without offboard compute, ROS infrastructure, or external ground station dependency.
+		An eight-month undergraduate thesis project implementing a fully onboard mapping and autonomous exploration system for the Bitcraze Crazyflie 2.1 nano quadrotor. The system builds a real-time 2D log-odds occupancy grid entirely on the GAP-8 RISC-V processor, no offboard compute, no external positioning infrastructure, and no ground station in the loop.
+		Sensor data from five time-of-flight ranging modules is packaged by the STM32 flight controller and streamed to the GAP-8 over a custom inter-processor communication layer. The GAP-8 runs Bresenham ray casting to update a 200×200 occupancy grid within its 512KB L2 RAM budget, then executes a frontier-based exploration algorithm to autonomously identify unexplored regions and generate navigation waypoints. All while streaming compressed map deltas over WiFi to a ROS2 visualizer in real time.
+		The project was motivated by NanoSLAM and C-SLAM, two nano-UAV SLAM frameworks out of ETH Zurich, and serves as a hardware foundation for future work toward fully decentralized multi-agent swarm mapping.
         </p>
 
         <div class="external-links">

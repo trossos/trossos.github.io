@@ -147,11 +147,22 @@ hr {
 }
 
 .home-page .section-label {
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 36px;
+  color: var(--ink);
+  margin: 0 0 36px;
+  text-align: left;
+}
+
+.home-page .section-label::after {
+  content: "";
+  flex: 1;
+  /* border-top: 1px solid var(--border); */
 }
 
 /* Project Card Styles */
@@ -495,10 +506,11 @@ display: block;
   display: block;
   width: 100%;
   text-align: center;
-  margin-top: 10px;
-  font-size: 11px;
-  color: var(--muted-dark);
-  letter-spacing: 0.03em;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.02em;
 }
 
 
@@ -526,7 +538,7 @@ display: block;
 }
 
 .project-page .section-label {
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted-dark);
@@ -625,12 +637,7 @@ display: block;
 /* ─── RESPONSIVE ─── */
 @media (max-width: 580px) {
   .home-page .project {
-  display: grid;
-  grid-template-columns: 1fr 380px;  /* Good size for most screens */
-  gap: 32px;
-  align-items: start;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--border);
+	grid-template-columns: 1fr;
   }
 
   .home-page .project-image-wrap {

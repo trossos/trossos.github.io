@@ -21,18 +21,17 @@
         <h1 class="name">Trent <em>Rossos</em></h1>
         <p class="bio">
           I build systems that operate in the physical world; autonomous
-          vehicles, robotic arms, exoskeletons, and UAVs. Currently completing a
-          B.A.Sc. in Engineering Science with a robotics major at the University
+          vehicles, robotic arms, exoskeletons, and UAVs. Graduated with a B.A.Sc. in Engineering Science with a robotics major at the University
           of Toronto, with experience spanning ADAS at Magna Electronics,
           robotic manipulation at York University, and assistive technology at
-          Toronto Rehab.
+          Toronto Rehab. Additionally, I have a strong background in embedded systems and real-time control, with experience developing firmware for microcontrollers and integrating complex hardware-software systems. Through various course I have learned many robotics fundamentals, including SLAM, motion planning, and control, and have applied these concepts in projects ranging from autonomous drones to wheelchair-mounted robotic arms. I am passionate about building technology that has a positive impact on people's lives, particularly in the realm of assistive robotics and mobility solutions. When I'm not working on robotics projects, I enjoy hiking, working out, and exploring new coffee shops around the city.
         </p>
         <nav class="links">
-          <a href="mailto:trent.rossos@mail.utoronto.ca">Email</a>
+          <a href="mailto:21trossos@gmail.com">Email</a>
           <a href="https://linkedin.com/in/trentrossos" target="_blank"
             >LinkedIn</a
           >
-          <a href="/resume.pdf" target="_blank">Résumé</a>
+          <a href="/resume/build/main.pdf" target="_blank">Résumé</a>
         </nav>
       </header>
 
@@ -52,11 +51,8 @@
               <span class="project-year">2026</span>
             </div>
             <p class="project-desc">
-              For my undergraduate thesis, I developed a fully embedded mapping
-              and exploration pipeline for the Crazyflie 2.1 Nano-UAV platform.
-              The system fuses ToF depth data to build a real-time occupancy map
-              entirely on the GAP-8 MCU, working within tight memory and compute
-              constraints.
+			An eight-month undergraduate thesis project implementing a fully onboard mapping and autonomous exploration system for the Bitcraze Crazyflie 2.1 nano quadrotor. The system builds a real-time 2D log-odds occupancy grid entirely on the GAP-8 RISC-V processor, no offboard compute, no external positioning infrastructure, and no ground station in the loop.
+			Sensor data from five time-of-flight ranging modules is packaged by the STM32 flight controller and streamed to the GAP-8 over a custom inter-processor communication layer. The GAP-8 runs Bresenham ray casting to update a 200×200 occupancy grid within its 512KB L2 RAM budget, then executes a frontier-based exploration algorithm to autonomously identify unexplored regions and generate navigation waypoints.
             </p>
             <div class="project-tags">
               <span class="tag">C</span>
@@ -124,9 +120,9 @@
               <a href="ROB498/ROB498_Final_Report.pdf" target="_blank"
                 >Final Report →</a
               >
-              <a href="https://github.com/trentrossos" target="_blank"
+              <!-- <a href="https://github.com/trentrossos" target="_blank"
                 >GitHub →</a
-              >
+              > -->
             </div>
           </div>
           <!-- src="./images/ROB498/capstone_drone_crop.jpg" -->
