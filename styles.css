@@ -641,7 +641,7 @@ display: block;
   }
 
   .home-page .project-image-wrap {
-    order: -1;
+    /* order: -1; */
     aspect-ratio: 16/9;
   }
 

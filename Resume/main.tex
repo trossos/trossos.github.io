@@ -134,7 +134,7 @@
 %-----------EDUCATION-----------
 \section{\textbf{\color{colour} Education}} \vspace{\z} \resumeSubHeadingListStart \resumeSubheading
 {University of Toronto}{Spring 2026} {B.A.Sc. in Engineering
-	Science, major in Robotics Engineering}{Toronto, ON}
+	Science + Professional Experience Year (Magna Electronics), Major: Robotics}{Toronto, ON}
 \resumeSubHeadingListEnd \vspace{-10pt}
 %-----------EXPERIENCE-----------
 
@@ -144,9 +144,9 @@
 {Software Engineering Intern}{May 2024 \textbf{--} Aug 2025}
 {Magna Electronics | Magna Global}{Brampton, ON}
 \resumeItemListStart
-\resumeItem{Spearheaded improvements in the autonomous parking system by optimizing temporal triangulation with ultrasonic sensors and Advanced Driver-Assistance Systems (ADAS), enhancing object detection in blind spots and reducing error rates by 20\%.}
+\resumeItem{Optimized autonomous parking accuracy by implementing temporal triangulation with ultrasonic sensors, reducing blind-spot detection errors by 20\%}
 \resumeItem{Developed and executed testing protocols for vehicle systems using Vector CANoe and Lauterbach JTAG debuggers, analyzing CAN data and logs to identify and resolve failures, improving performance and reliability.}
-\resumeItem{Co-developed a patent-pending method for classifying obstacles using ultrasonic sensor data, integrating statistical analysis, safety overrides, and deep learning to enhance obstacle height detection and automotive safety systems.}
+\resumeItem{Co-developed a patent-pending obstacle classification system for automotive safety, using ultrasonic echo data to distinguish high vs. low obstacles via a neural network with pole and wall detectors as rule-based overrides.}
 
 \resumeItemListEnd
 \vspace{\z}
@@ -155,9 +155,13 @@
 {The Laboratory for Active and Attentive Vision | York University}{Toronto, ON}
 \resumeItemListStart
 
-\resumeItem{Deployed software utilizing a ZED 2 3D camera for environmental perception and control of a 7 DOF Kinova robotic arm, enabling accurate manipulation of objects from the surroundings.}
-\resumeItem{Designed an intuitive control interface for an autonomous wheelchair integrated with a Kinova robotic arm, reducing task completion time by 30\% measured through timed user trials before and after deployment. }
-\resumeItem{Implemented ROS to harmonize and supervise the numerous subsystems (UI, arm control, rotation platform, and wheelchair functions), resulting in a more robust platform.}
+\resumeItem{Deployed a perception pipeline using a ZED 2 stereo camera to generate a point cloud, 
+enabling wheelchair-bound users to select objects via a 2D interface with automatic 3D coordinate 
+resolution for downstream arm control.}
+\resumeItem{Integrated the perception pipeline with a 7 DOF Kinova arm and custom control interface, 
+enabling fully autonomous object retrieval and delivery, reducing task completion time by 30\% 
+across timed user trials.}
+\resumeItem{Developed a ROS architecture to harmonize and supervise the numerous subsystems (UI, arm control, rotation platform, and wheelchair functions), simplifying integration and enabling faster debugging across components.}
 
 
 
@@ -179,8 +183,9 @@
 
 % \resumeItemListEnd
 \resumeItemListStart
-    \resumeItem{Developed a backdriveable lower limb exoskeleton coupling 3D printed quasi-direct drive actuators to knee and hip orthoses, achieving a \$7,000 build cost compared to commercial alternatives exceeding \$100,000, with results published in the International Design Engineering Technical Conferences \& Computers and Information in Engineering Conference.}
+    \resumeItem{Developed a backdriveable lower limb exoskeleton coupling 3D printed quasi-direct drive actuators to knee and hip orthoses, achieving a \$7,000 build cost compared to commercial alternatives exceeding \$100,000.}
     \resumeItem{Selected as one of few projects presented to South Korean President Yoon Suk-Yeol on his visit to the University of Toronto, recognizing the project's novelty and impact.}
+	\resumeItem{Published results in the International Design Engineering Technical Conferences \& Computers and Information in Engineering Conference.}
 \resumeItemListEnd
 \vspace{\z}
 
@@ -225,16 +230,19 @@
 %       \resumeItemListEnd
 
 \resumeProjectHeading
-      {\textbf{Crazyflie Nano UAV Onboard Mapping and Exploration (Thesis)}}{ }
+      {\textbf{Crazyflie Nano UAV Onboard Mapping and Exploration -- Undergraduate Thesis}}{ }
       \resumeItemListStart
-       \resumeItem{Built a fully onboard occupancy grid mapping pipeline for the Crazyflie 2.1 using ToF sensors, Bresenham ray-casting, and log-odds updates at 5 cm resolution, all within the GAP-8's 512 KB RAM constraint.}
+    \resumeItem{Built a fully onboard log-odds based occupancy grid mapping pipeline for the Crazyflie 2.1 using ToF sensors and 
+    Bresenham ray-casting, entirely within the GAP-8's 512 KB 
+    RAM, successfully mapping a 3×3m environment.}
         \resumeItem{Implemented frontier-based autonomous exploration with obstacle clearance and line-of-sight validation, and designed a custom SPI/CPX multiplexing layer between the STM32 and GAP-8 to route sensor scans and navigation waypoints without modifying core flight firmware.}
-		\resumeItem{Validated live mapping and exploration via ROS2, receiving occupancy data over WiFi from the onboard ESP32.}
+		  \resumeItem{Authored a formal thesis report documenting system architecture, identified platform-level 
+    flight instability as a key constraint, and proposed future directions for multi-agent swarm mapping.}
 \resumeItemListEnd
 \vspace{\z}
 
 \resumeProjectHeading
-      {\textbf{Autonomous Elderly Fall Detection and Tracking Drone (Capstone)}}{ }
+      {\textbf{Autonomous Elderly Fall Detection and Tracking Drone -- Capstone}}{ }
       \resumeItemListStart
        \resumeItem{Developed an autonomous UAV using Cube Orange running PX4 and a Jetson Nano to track individuals and detect falls in real time using YOLOv8-pose keypoint estimation, classifying events based on bounding box aspect ratio, torso angle, and head drop velocity.}
         \resumeItem{Achieved target convergence in under 20 seconds and sustained tracking of a moving target for over 2 minutes, limited only by battery life, validated through controlled flight tests.}
@@ -245,7 +253,7 @@
 \resumeItemListStart
 	\resumeItem{Designed RRT and RRT* sampling-based motion planners for a unicycle robot in simulation, then implemented them on a real TurtleBot 3 Waffle Pi, achieving successful navigation in a cluttered environment.}
 	% \resumeItem{Calibrated TurtleBot wheel odometry and built an occupancy grid map from LiDAR using log-odds updates, identifying key sources of drift between simulation and real-robot deployment.}
-	\resumeItem{Utilize AMCL particle filter localization and Gmapping SLAM in both simulated and real-world environments, achieving robust map quality by combining scan matching with odometry correction.}
+	\resumeItem{Utilized AMCL particle filter localization and Gmapping SLAM in both simulated and real-world environments, achieving robust map quality by combining scan matching with odometry correction.}
 \resumeItemListEnd
 
 
@@ -278,9 +286,9 @@
 \begin{itemize}[leftmargin=0.15in, label={}]
 	\small{\item{
 		      \textbf{Languages:}{ Python, C, C++, Java, Matlab} \\
-		      \textbf{Libraries/Frameworks: }{ROS, OpenCV, FreeRTOS, TensorFlow, CAN, Scikit-learn, YOLO} \\
-		      \textbf{Technical Skills:}{ git, Object Oriented Programming, SLAM, Linux, Embedded systems, 3D CAD and CAM}\\
-		      \textbf{Interests:}{ Hockey, Ultimate Frisbee, Fitness, Robotics}
+		      \textbf{Frameworks: }{ROS, FreeRTOS, TensorFlow, Scikit-learn, OpenCV, YOLO} \\
+		      \textbf{Tools \& Concepts: }{Git, Linux, SLAM, Embedded Systems, OOP, CAN, 3D CAD/CAM}\\
+		      \textbf{Interests: }{ Hockey, Ultimate Frisbee, Fitness, Robotics}
 		      %\textbf{Project Management Skills:}{ Leadership, Communication, Initiative, Teamwork, Critical Thinking, Creative Problem Solving}
 	      }}\vspace{\y}
 \end{itemize}
