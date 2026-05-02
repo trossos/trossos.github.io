@@ -155,13 +155,16 @@
 {The Laboratory for Active and Attentive Vision | York University}{Toronto, ON}
 \resumeItemListStart
 
-\resumeItem{Created a perception pipeline using a ZED 2 stereo camera to generate a point cloud, 
-enabling wheelchair-bound users to select objects via a 2D interface with automatic 3D coordinate 
-resolution for downstream arm control.}
+% \resumeItem{Created a perception pipeline using a ZED 2 stereo camera to generate a point cloud, 
+% \resumeItem{Created a ROS perception pipeline using a ZED 2 stereo camera to generate point clouds,
+% enabling wheelchair-bound users to select objects via a 2D interface with automatic 3D coordinate 
+% resolution for downstream arm control.}
+\resumeItem{Built a ROS stereo-perception pipeline with a ZED 2 camera, converting 2D object selections into 3D coordinates for downstream Kinova arm control.}
 \resumeItem{Integrated the perception pipeline with a 7 DOF Kinova arm and custom control interface, 
 enabling fully autonomous object retrieval and delivery, reducing task completion time by 30\% 
 across timed user trials.}
-\resumeItem{Developed a ROS architecture to harmonize and supervise the numerous subsystems (UI, arm control, rotation platform, and wheelchair functions), simplifying integration and enabling faster debugging across components.}
+% \resumeItem{Developed a ROS architecture to harmonize and supervise the numerous subsystems (UI, arm control, rotation platform, and wheelchair functions), simplifying integration and enabling faster debugging across components.}
+\resumeItem{Designed ROS nodes and supervision logic for UI, arm control, rotation platform, and wheelchair subsystems, simplifying integration and debugging across a multi-hardware robotics stack.}
 
 
 
@@ -244,14 +247,17 @@ across timed user trials.}
 \resumeProjectHeading
       {\textbf{Autonomous Elderly Fall Detection and Tracking Drone -- Capstone}}{ }
       \resumeItemListStart
-       \resumeItem{Developed an autonomous UAV using Cube Orange running PX4 and a Jetson Nano to track individuals and detect falls in real time using YOLOv8-pose keypoint estimation, classifying events based on bounding box aspect ratio, torso angle, and head drop velocity.}
-        \resumeItem{Achieved target convergence in under 20 seconds and sustained tracking of a moving target for over 2 minutes, limited only by battery life, validated through controlled flight tests.}
+       \resumeItem{Developed an autonomous UAV using Cube Orange running PX4 and a Jetson Nano using ROS2 to track individuals and detect falls in real time using YOLOv8-pose keypoint estimation, classifying events based on bounding box aspect ratio, torso angle, and head drop velocity.}
+        % \resumeItem{Achieved target convergence in under 20 seconds and sustained tracking of a moving target for over 2 minutes, limited only by battery life, validated through controlled flight tests.}
+		\resumeItem{Implemented state-machine flight control and visual tracking logic, achieving target convergence in under 20 seconds and sustaining moving-target tracking for over 2 minutes in flight tests.}
+
       \resumeItemListEnd
 \vspace{\z}
 
 \resumeProjectHeading{\textbf{Planning, Mapping, and Localization on a Mobile Robotics Platform }}{ }
 \resumeItemListStart
-	\resumeItem{Designed and implemented RRT and RRT* sampling-based motion planners for a unicycle modeled robot in simulation and on a real TurtleBot 3 Waffle Pi, achieving successful navigation in a cluttered environment.}
+	% \resumeItem{Designed and implemented RRT and RRT* sampling-based motion planners for a unicycle modeled robot in simulation and on a real TurtleBot 3 Waffle Pi, achieving successful navigation in a cluttered environment.}
+	\resumeItem{Designed and implemented RRT and RRT* motion planners for a unicycle-model robot in Gazebo and on a TurtleBot 3 Waffle Pi, achieving navigation through cluttered environments.}
 	% \resumeItem{Calibrated TurtleBot wheel odometry and built an occupancy grid map from LiDAR using log-odds updates, identifying key sources of drift between simulation and real-robot deployment.}
 	\resumeItem{Applied AMCL particle filter localization and Gmapping SLAM in both simulated and real-world environments, improving map quality by combining LiDAR scan matching with odometry correction.}
 \resumeItemListEnd
