@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.2)  4 MAY 2026 15:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.2)  4 MAY 2026 15:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/DEV/trossos.github.io/Resume/main.tex
-(c:/DEV/trossos.github.io/Resume/main.tex
+**c:/DEV/trossos.github.io/Resume/ROS_Resume.tex
+(c:/DEV/trossos.github.io/Resume/ROS_Resume.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
 (c:/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -287,8 +287,8 @@ File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 ) (c:/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count304
-) (build/main.aux)
-\openout1 = `main.aux'.
+) (build/ROS_Resume.aux)
+\openout1 = `ROS_Resume.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
 LaTeX Font Info:    ... okay on input line 115.
@@ -323,9 +323,9 @@ LaTeX Font Info:    ... okay on input line 115.
 \everyMPtoPDFconversion=\toks33
 )
 Package hyperref Info: Link coloring OFF on input line 115.
- (build/main.out) (build/main.out)
+ (build/ROS_Resume.out) (build/ROS_Resume.out)
 \@outlinefile=\write3
-\openout3 = `main.out'.
+\openout3 = `ROS_Resume.out'.
 
 \big@size=\dimen180
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 130.
@@ -356,17 +356,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 141.
 
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 187.
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 186.
 (c:/texlive/2026/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 222.
+(hyperref)                removing `\@ifnextchar' on input line 221.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 286.
+(hyperref)                removing `\@ifnextchar' on input line 285.
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
@@ -375,24 +375,24 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1
 
-{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}] (build/main.aux)
+{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}] (build/ROS_Resume.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
+Package rerunfilecheck Info: File `ROS_Resume.out' has not changed.
 (rerunfilecheck)             Checksum: C5F41DC49D34E2B4546CD498A796577B;550.
  ) 
 Here is how much of TeX's memory you used:
  11792 strings out of 467348
- 184211 string characters out of 5419841
- 652158 words of memory out of 5000000
+ 184325 string characters out of 5419841
+ 653188 words of memory out of 5000000
  40706 multiletter control sequences out of 15000+600000
  650959 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,84p,376b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,84p,382b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on build/main.pdf (1 page, 75817 bytes).
+Output written on build/ROS_Resume.pdf (1 page, 76045 bytes).
 PDF statistics:
  54 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream

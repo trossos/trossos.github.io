@@ -1,0 +1,73 @@
+% Project:  TeX Cover Letter Template
+% Author:   Sid Lacy
+
+% EDIT info.tex, body.tex
+
+\documentclass[12pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{eso-pic}
+\usepackage{charter}
+\usepackage{setspace}
+
+% Adjust margins and spacing
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.5in}
+\definecolor{gr}{RGB}{225,225,225}
+
+% \input{info}
+
+\begin{document}
+
+% Shaded header banner
+\AddToShipoutPictureBG{%
+\color{gr}
+\AtPageUpperLeft{\rule[-1.3in]{\paperwidth}{1.3in}}
+}
+
+% Header
+\begin{center}
+  {\fontsize{28}{0}\selectfont\scshape Trent Rossos}\\[4pt]
+  \href{mailto:21trossos@gmail.com}{21trossos@gmail.com} $|$
+  \href{https://linkedin.com/in/trentrossos}{linkedin.com/in/trentrossos} $|$
+  \href{https://trossos.github.io}{{trossos.github.io}}
+\end{center}
+
+\vspace{0.3in}
+
+% Opening block
+% \today\\
+
+% \vspace{-0.1in}\greeting\ \recipient,
+
+% Body
+\vspace{-0.1in}
+\setlength\parindent{12pt} % Reduced indent
+\setstretch{0.9} % Reduced line spacing
+I am writing to express my strong interest in the Embedded Software Engineer position at Planar Motor. The opportunity to build the software intelligence behind magnetic levitation robotic platforms, systems operating at the frontier of precision motion, real-time control, and multi-robot coordination, is exactly the kind of challenge I have been working toward. Planar Motor’s approach to redefining motion through maglev is genuinely exciting to me, and I believe my background in embedded systems and robotics puts me in a strong position to contribute from day one.
+
+I am currently completing my final year in the Robotics major within Engineering Science at the University of Toronto, following a 16-month Professional Experience Year at Magna Electronics. At Magna, I worked directly on embedded software for automotive systems, writing and debugging C firmware, using Lauterbach JTAG debuggers and Vector CANoe to analyze CAN and UART traffic, and developing a patent-pending obstacle classification system that ran on-device with rule-based overrides layered over a neural network. This work gave me a practical understanding of what it means to ship reliable software under real-time and resource constraints.
+
+My undergraduate thesis pushed me further into bare-metal embedded development. I built a fully onboard occupancy grid mapping and autonomous exploration pipeline for the Crazyflie 2.1 nano UAV, running entirely within the GAP-8 processor’s 512 KB of RAM. To route sensor data and navigation waypoints cleanly between the STM32 and GAP-8 without modifying core flight firmware, I designed a custom SPI and CPX multiplexing layer from scratch. Debugging concurrency issues across two processors with tight memory budgets taught me more about embedded systems than any course could.
+
+Beyond the technical depth, I am drawn to Planar Motor because of the nature of the problem. Multi-robot coordination, precision motion, and operating at the edge of what embedded hardware can achieve are not off-the-shelf challenges, and that is exactly what motivates me. I have consistently sought out projects where constraints are real and solutions are not obvious, from a 7,000 dollar lower-limb exoskeleton with custom quasi-direct drive actuators to autonomous fall-detection drones validated in live flight tests.
+
+I would welcome the opportunity to speak with your team about how my experience aligns with what you are building. Thank you for considering my application.
+
+% Closer
+\vspace{0.1in}
+\vfill
+
+\begin{flushright}
+Kind Regards,\\[6pt]
+
+\includegraphics[width=1.2in]{signature.png}\vspace{1in}
+
+% \myname\\
+
+\end{flushright}
+
+\end{document}

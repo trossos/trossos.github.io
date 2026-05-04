@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1777923833.8536 "c:/DEV/trossos.github.io/Resume/main.tex" "build/main.pdf" "main" 1777923835.38679 0
-  "build/main.aux" 1777923835 824 f9b9769f75d3de4f0a0074cca3670983 "pdflatex"
-  "build/main.out" 1777923835 550 c5f41dc49d34e2b4546cd498a796577b "pdflatex"
-  "c:/DEV/trossos.github.io/Resume/main.tex" 1777923832 15162 3908267b6337f94ac33760412fc81399 ""
+["pdflatex"] 1777923474.18747 "c:/DEV/trossos.github.io/Resume/main copy.tex" "build/main copy.pdf" "main copy" 1777923475.67022 0
+  "build/main copy.aux" 1777923475 824 f9b9769f75d3de4f0a0074cca3670983 "pdflatex"
+  "build/main copy.out" 1777923475 550 c5f41dc49d34e2b4546cd498a796577b "pdflatex"
+  "c:/DEV/trossos.github.io/Resume/main copy.tex" 1777749148 14986 e535f70b034b248f86f5c8c53565af6b ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775149159 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1775149859 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/adobe/palatino/pplb7t.tfm" 1775152549 1616 371d1ee60c04b008c8fd760060cd34f1 ""
@@ -101,10 +101,10 @@
   "c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1775155938 5619402 045890036aad9b52b154ef5568e59d3a ""
   "c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1775156214 3648404 0a41c0db687c34078841851b385574db ""
   "c:/texlive/2026/texmf.cnf" 1775155902 713 e69b156964470283e0530f5060668171 ""
-  "main.tex" 1777923832 15162 3908267b6337f94ac33760412fc81399 ""
+  "main copy.tex" 1777749148 14986 e535f70b034b248f86f5c8c53565af6b ""
   (generated)
-  "build/main.aux"
-  "build/main.log"
-  "build/main.out"
-  "build/main.pdf"
+  "build/main copy.aux"
+  "build/main copy.log"
+  "build/main copy.out"
+  "build/main copy.pdf"
   (rewritten before read)
