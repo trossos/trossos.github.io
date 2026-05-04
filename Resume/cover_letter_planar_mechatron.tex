@@ -1,0 +1,75 @@
+% Project:  TeX Cover Letter Template
+% Author:   Sid Lacy
+
+% EDIT info.tex, body.tex
+
+\documentclass[12pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{eso-pic}
+\usepackage{charter}
+\usepackage{setspace}
+
+% Adjust margins and spacing
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.5in}
+\definecolor{gr}{RGB}{225,225,225}
+
+% \input{info}
+
+\begin{document}
+
+% Shaded header banner
+\AddToShipoutPictureBG{%
+\color{gr}
+\AtPageUpperLeft{\rule[-1.3in]{\paperwidth}{1.3in}}
+}
+
+% Header
+\begin{center}
+  {\fontsize{28}{0}\selectfont\scshape Trent Rossos}\\[4pt]
+  \href{mailto:21trossos@gmail.com}{21trossos@gmail.com} $|$
+  \href{https://linkedin.com/in/trentrossos}{linkedin.com/in/trentrossos} $|$
+  \href{https://trossos.github.io}{{trossos.github.io}}
+\end{center}
+
+\vspace{0.3in}
+
+% Opening block
+% \today\\
+
+% \vspace{-0.1in}\greeting\ \recipient,
+
+% Body
+\vspace{-0.1in}
+\setlength\parindent{12pt} % Reduced indent
+\setstretch{0.9} % Reduced line spacing
+ 
+\noindent
+ I am writing to express my strong interest in the Mechatronics Engineer/EIT/Specialist position at Planar Motor. Designing advanced control systems for multi-axis magnetic levitation platforms, where precision, stability, and dynamic performance are non-negotiable, is exactly the kind of problem I find most compelling. Planar Motor's work sits at a genuinely rare intersection of electromechanical systems, real-time control, and cutting-edge manufacturing automation, and I am excited by the opportunity to contribute to it.
+ 
+I recently completed my B.A.Sc. in the Robotics major in Engineering Science at the University of Toronto, a program that combines rigorous control theory with hands-on implementation. My coursework gave me strong foundations in dynamic system modeling, classical and modern control (PID, state-space, LQR, Kalman filtering), and real-time systems, all of which I have applied directly in hardware. In my undergraduate thesis, I implemented a fully onboard autonomous navigation pipeline for the Crazyflie 2.1 nano UAV, including sensor fusion, state estimation, and motion planning running in real time on a resource-constrained embedded processor. Getting that system to behave stably and predictably under real hardware noise and latency required the same kind of careful control design and iterative testing that I expect is central to your work on maglev platforms.
+ 
+My 16-month Professional Experience Year at Magna Electronics deepened my ability to bring control systems from concept to validated hardware. I worked on improving autonomous parking accuracy by refining ultrasonic sensor fusion algorithms, reducing blind-spot detection errors by 20\%, and used tools like Vector CANoe and Lauterbach JTAG debuggers to characterize and resolve system-level failures. I also contributed to a patent-pending obstacle classification system combining a neural network with deterministic rule-based overrides, a project that required careful thinking about system reliability and edge-case robustness, qualities that matter enormously in precision motion applications.
+ 
+My capstone project further stretched my controls experience: I developed the full perception and tracking pipeline for an autonomous fall-detection UAV, designing a controller that achieved target convergence in under 20 seconds and sustained tracking of a moving subject for over 2 minutes in live flight tests. Projects like this, along with a \$7{,}000 backdriveable lower-limb exoskeleton built around custom quasi-direct drive actuators, reflect a consistent pattern in my work. I am drawn to problems where the physics are real, the constraints are tight, and off-the-shelf solutions do not exist.
+ 
+I would very much welcome the chance to discuss how my background aligns with what you are building at Planar Motor. Thank you for considering my application.
+
+% Closer
+\vspace{0.1in}
+\vfill
+
+\begin{flushright}
+Kind Regards,\\[6pt]
+
+\includegraphics[width=1.2in]{signature.png}\vspace{1in}
+
+% \myname\\
+
+\end{flushright}
+
+\end{document}
