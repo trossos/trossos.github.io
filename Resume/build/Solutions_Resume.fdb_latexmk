@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1777927099.4406 "c:/DEV/trossos.github.io/Resume/Embedded_Resume.tex" "build/Embedded_Resume.pdf" "Embedded_Resume" 1777927100.57641 0
-  "Embedded_Resume.tex" 1777927097 15180 0ae7b72efa49394d92d271d052759191 ""
-  "build/Embedded_Resume.aux" 1777927100 824 f9b9769f75d3de4f0a0074cca3670983 "pdflatex"
-  "build/Embedded_Resume.out" 1777927100 550 c5f41dc49d34e2b4546cd498a796577b "pdflatex"
-  "c:/DEV/trossos.github.io/Resume/Embedded_Resume.tex" 1777927097 15180 0ae7b72efa49394d92d271d052759191 ""
+["pdflatex"] 1777927194.30233 "c:/DEV/trossos.github.io/Resume/Solutions_Resume.tex" "build/Solutions_Resume.pdf" "Solutions_Resume" 1777927195.46687 0
+  "Solutions_Resume.tex" 1777927192 15410 81720b1cc3a1d68f3025a8748b58769d ""
+  "build/Solutions_Resume.aux" 1777927195 824 f9b9769f75d3de4f0a0074cca3670983 "pdflatex"
+  "build/Solutions_Resume.out" 1777927195 550 c5f41dc49d34e2b4546cd498a796577b "pdflatex"
+  "c:/DEV/trossos.github.io/Resume/Solutions_Resume.tex" 1777927192 15410 81720b1cc3a1d68f3025a8748b58769d ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775149159 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1775149859 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/adobe/palatino/pplb7t.tfm" 1775152549 1616 371d1ee60c04b008c8fd760060cd34f1 ""
@@ -103,8 +103,8 @@
   "c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1775156214 3648404 0a41c0db687c34078841851b385574db ""
   "c:/texlive/2026/texmf.cnf" 1775155902 713 e69b156964470283e0530f5060668171 ""
   (generated)
-  "build/Embedded_Resume.aux"
-  "build/Embedded_Resume.log"
-  "build/Embedded_Resume.out"
-  "build/Embedded_Resume.pdf"
+  "build/Solutions_Resume.aux"
+  "build/Solutions_Resume.log"
+  "build/Solutions_Resume.out"
+  "build/Solutions_Resume.pdf"
   (rewritten before read)
