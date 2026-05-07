@@ -1,0 +1,299 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{soul}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mathpazo}
+
+\input{glyphtounicode}
+\definecolor{metaBlue}{HTML}{000000}
+\definecolor{colour}{HTML}{000000}%{0071ce}%{801650}%{337B68}%{0052CC}%{337B68}%{E50914}%{0768E1}%{801650}%{0768E1}%{24b557}%{0768E1}%{801650}%{3e7a7d}%{418c8a}%{0768E1}%{801650}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{colour}\titlerule \vspace{-7pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2.5pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand\x{0pt}
+\newcommand\y{-3.8pt}
+\newcommand\z{-2.4pt}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+	{\fontsize{36}{40}\selectfont \textbf{Trent \color{colour} Rossos}} \vspace{0pt}
+	\color{black}
+	% \textbf{\scriptsize (He/Him)} \\ \vspace{3pt}
+
+	\color{black}
+	% \textbf{\large Student Engineer} \\ \vspace{3pt}
+	\small 647-970-5118 $|$ \href{mailto:21trossos@gmail.com}{21trossos@gmail.com}$|$
+	\href{https://www.linkedin.com/in/trentrossos/}{{linkedin.com/in/trentrossos/}}$|$
+	\href{https://trossos.github.io}{{trossos.github.io}} 
+\end{center} \vspace{-15pt}
+
+
+%-----------EDUCATION-----------
+\section{\textbf{\color{colour} Education}} \vspace{\z} \resumeSubHeadingListStart \resumeSubheading
+{University of Toronto}{Spring 2026} {B.A.Sc. in Engineering
+	Science + Professional Experience Year, Robotics Major}{Toronto, ON}
+\resumeSubHeadingListEnd \vspace{-10pt}
+%-----------EXPERIENCE-----------
+
+\section{\color{colour} \textbf{Experience}} \vspace{\x}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Software Engineer}{May 2024 \textbf{--} Aug 2025}
+{Magna Electronics | Magna Global}{Brampton, ON}
+\resumeItemListStart
+
+\resumeItem{Developed and executed testing protocols for vehicle systems using Vector CANoe and Lauterbach JTAG debuggers, analyzing CAN data and logs to identify and resolve failures, improving performance and reliability.}
+\resumeItem{Co-developed a patent-pending obstacle classification system for automotive safety, using ultrasonic echo data to distinguish high vs. low obstacles via a neural network with pole and wall detectors as rule-based overrides.}
+\resumeItem{Optimized autonomous parking accuracy by implementing temporal triangulation with ultrasonic sensors, reducing blind-spot detection errors by 20\%}
+\resumeItemListEnd
+\vspace{\z}
+\resumeSubheading
+{Robotics Research Intern}{May 2023 \textbf{--} Aug 2023}
+{The Laboratory for Active and Attentive Vision | York University}{Toronto, ON}
+\resumeItemListStart
+
+\resumeItem{Created a perception pipeline using a ZED 2 stereo camera to generate a point cloud, 
+enabling wheelchair-bound users to select objects via a 2D interface with automatic 3D coordinate 
+resolution for downstream arm control.}
+\resumeItem{Integrated the perception pipeline with a 7 DOF Kinova arm and custom control interface, 
+enabling fully autonomous object retrieval and delivery, reducing task completion time by 30\% 
+across timed user trials.}
+\resumeItem{Developed a ROS architecture to harmonize and supervise the numerous subsystems (UI, arm control, rotation platform, and wheelchair functions), simplifying integration and enabling faster debugging across components.}
+
+
+
+\vspace{\z}
+\resumeItemListEnd
+\resumeSubheading
+{Robotics Research Intern}{May 2022 \textbf{--} Aug 2022}
+{Intelligent Assistive Technology and Systems Lab | Toronto
+	Rehabilitation Institute}{Toronto, ON}
+% \resumeItemListStart
+
+% \resumeItem{Developed a backdriveable lower limb exoskeleton that provides mechanical assistance to facilitate user rehabilitation, which was one of few projects presented to South Korean President Yoon Suk-Yeol on his visit to the University of Toronto.}
+% % \resumeItem{Implemented additive manufacturing to create quasi-direct drive actuators in a economical way.}
+% \resumeItem{Engineered components to couple 3D printed actuators to knee and hip orthoses. Using preexisting orthoses with
+% 	3D printed actuators allowed the exoskeleton to cost \$7,000 compared to existing exoskeletons that cost
+% 	upwards of \$100,000.}
+% % \resumeItem{Documented exoskeleton results in an academic journal article describing the design and development of an low cost lower limb exoskeleton.}
+% \resumeItem{{Results were published in the International Design Engineering Technical Conferences \& Computers and Information in Engineering Conference.} }
+
+% \resumeItemListEnd
+\resumeItemListStart
+    \resumeItem{Developed a backdriveable lower limb exoskeleton coupling 3D printed quasi-direct drive actuators to knee and hip orthoses, achieving a \$7,000 build cost compared to commercial alternatives exceeding \$100,000.}
+    \resumeItem{Selected as one of few projects presented to South Korean President Yoon Suk-Yeol on his visit to the University of Toronto, recognizing the project's novelty and impact.}
+	\resumeItem{Published results in the International Design Engineering Technical Conferences \& Computers and Information in Engineering Conference.}
+\resumeItemListEnd
+\vspace{\z}
+
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+% \resumeSubheading
+%   {Robotics Lead Instructor}{Sept 2019 \textbf{--} May 2021}
+%   {Holland Bloorview Kids Rehabilitation Hospital}{Toronto, ON}
+%   \resumeItemListStart
+
+% \resumeItem{Created and taught an intermediate robotics curriculum to 10 children with varying levels of mental and physical abilities. The program used LEGO Mindstorms robots to facilitate the learning of mechanical and programming fundamentals.}
+
+% \resumeItem{Aided in the development of participants' social skills through structuring and encouraging collaboration when solving robotics based problems.}
+
+% % \resumeItem{Facilitated the design and construction of unique LEGO robots and programs resulting in participant's intellectual growth.}
+
+%     \vspace{\y}
+% \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%
+
+%-----------PROJECTS-----------
+\section{\color{colour} \textbf{Projects}} \vspace{\y}
+\resumeSubHeadingListStart
+% \resumeProjectHeading
+%       {\textbf{Autonomous Robot Localization}}{ }
+%       \resumeItemListStart
+%        \resumeItem{Implemented Kalman Filter algorithm in tandem with an ultrasonic sensor to accurately localize TurtleBot 3 Waffle Pi in a field of obstacles.} 
+%        % \resumeItem{Engineered sheet metal and box tube components using CAM software, CNC machining, and CAD drawings.}
+%         \resumeItem{Developed a control system using Bayesian Filtering and PID control to navigate TurtleBot 3 Waffle Pi to arbitrary locations along a closed loop path. }
+%         % \resumeItem{Developed custom steering system, using eye bolts and tie rods to maximize functionality while minimizing cost.  }
+%       \resumeItemListEnd
+
+\resumeProjectHeading
+      {\textbf{Crazyflie Nano UAV Onboard Mapping and Exploration -- Undergraduate Thesis}}{ }
+      \resumeItemListStart
+    \resumeItem{Built a fully onboard log-odds based occupancy grid mapping pipeline for the Crazyflie 2.1 using ToF sensors and 
+    Bresenham ray-casting, entirely within the GAP-8's 512 KB 
+    RAM, successfully mapping a 3×3m environment.}
+        \resumeItem{Implemented frontier-based autonomous exploration with obstacle clearance and line-of-sight validation, and designed a custom SPI/CPX multiplexing layer between the STM32 and GAP-8 to route sensor scans and navigation waypoints without modifying core flight firmware.}
+		  \resumeItem{Authored a formal thesis report documenting system architecture, identified platform-level 
+    flight instability as a key constraint, and proposed future directions for multi-agent swarm mapping.}
+\resumeItemListEnd
+\vspace{\z}
+
+\resumeProjectHeading
+      {\textbf{Autonomous Elderly Fall Detection and Tracking Drone -- Capstone}}{ }
+      \resumeItemListStart
+       \resumeItem{Developed an autonomous UAV using Cube Orange running PX4 and a Jetson Nano to track individuals and detect falls in real time using YOLOv8-pose keypoint estimation, classifying events based on bounding box aspect ratio, torso angle, and head drop velocity.}
+        \resumeItem{Achieved target convergence in under 20 seconds and sustained tracking of a moving target for over 2 minutes, limited only by battery life, validated through controlled flight tests.}
+      \resumeItemListEnd
+\vspace{\z}
+
+\resumeProjectHeading{\textbf{Planning, Mapping, and Localization on a Mobile Robotics Platform }}{ }
+\resumeItemListStart
+	\resumeItem{Designed and implemented RRT and RRT* sampling-based motion planners for a unicycle modeled robot in simulation and on a real TurtleBot 3 Waffle Pi, achieving successful navigation in a cluttered environment.}
+	% \resumeItem{Calibrated TurtleBot wheel odometry and built an occupancy grid map from LiDAR using log-odds updates, identifying key sources of drift between simulation and real-robot deployment.}
+	\resumeItem{Applied AMCL particle filter localization and Gmapping SLAM in both simulated and real-world environments, improving map quality by combining LiDAR scan matching with odometry correction.}
+\resumeItemListEnd
+
+
+%   \resumeProjectHeading
+%   {\textbf{Executive Head on FIRST Robotics Competition (FRC) Team \#7558 ALT-F4}}{ }
+%   \resumeItemListStart
+%    \resumeItem{Performed critical and time sensitive repairs on the robot as one of 5 pit crew members during high pressure competitions. At the 2019 provincial final our team placed 13th overall which is the highest of any first year team. } 
+% \resumeItem{Designed and assembled the electrical and pneumatic circuitry of the robot, which consisted of numerous motors, motor controllers, power distributions boards, solenoids, valves, and other control components.}
+% \resumeItem{Developed custom steering system, using eye bolts and tie rods to maximize functionality while minimizing cost.  }
+
+% \resumeProjectHeading{\textbf{Mentor, FIRST Robotics Competition (FRC) Team \#7558 ALT-F4}}{ }
+% \resumeItemListStart
+% 	\resumeItem{Mentored student members in electrical system design and robotics fundamentals, drawing on experience as a former pit crew member and executive head of the team.}
+% 	\resumeItem{Guided students through the design and assembly of robot electrical and pneumatic circuitry, including motors, motor controllers, power distribution boards, solenoids, and valves.}
+% \resumeItemListEnd
+
+
+% \resumeProjectHeading
+%       {\textbf{Detecting Irregular Data in Air Quality Sensor Grid (Undergraduate Thesis)}}{ }
+%       \resumeItemListStart
+%         \resumeItem{Devising methods of data cleanup and analysis to minimize erroneous air quality trend extrapolation}
+%         \resumeItem{Developed Python algorithm to assign severity metric to data spikes, quantifying statistical impact of inaccuracies}
+%         \resumeItem{Derived custom smoothing filters for data cleanup and documented experimental findings with literature review}
+%       \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROGRAMMING SKILLS-----------
+\section{\color{colour} \textbf{Technical Skills} } \vspace{-3pt}
+\begin{itemize}[leftmargin=0.15in, label={}]
+	\small{\item{
+\textbf{Languages:}{ C, C++, Python, Java, MATLAB} \\
+\textbf{Frameworks:}{ ROS, ROS2, FreeRTOS, TensorFlow, Scikit-learn, OpenCV, YOLO} \\
+\textbf{Tools \& Concepts:}{ Git, Agile, Linux, SLAM, STM32, CAN/UART/SPI/I2C, Embedded Systems, 3D CAD/CAM, GD\&T} \\
+		      \textbf{Interests: }{ Hockey, Ultimate Frisbee, Fitness, Robotics}
+		      %\textbf{Project Management Skills:}{ Leadership, Communication, Initiative, Teamwork, Critical Thinking, Creative Problem Solving}
+	      }}\vspace{\y}
+\end{itemize}
+
+%-------------------------------------------
+\end{document}

@@ -1,0 +1,12 @@
+#Latex intermediate files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.fdb_latexmk
+*.synctex.gz
